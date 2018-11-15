@@ -1,7 +1,7 @@
 <template>
   <header class="fit-height">
     <template v-if="videoIsReady">
-      <video id="kes" src="/video/kes2.mp4" type="video/mp4" autoplay loop muted />
+      <video id="kes" src="/video/kes2-compressed.mp4" type="video/mp4" autoplay loop muted />
     </template>
     <div class="layout">
       <img class="logotype" src="/img/rootsy-logo.svg" />
@@ -33,7 +33,7 @@ export default {
   mounted() {
     const kes = document.createElement('video')
 
-    kes.src = '/video/kes2b-vimeo-720p30.mp4'
+    kes.src = '/video/kes2-compressed.mp4'
     kes.type = 'video/mp4'
     kes.autoplay = true
     kes.loop = true
