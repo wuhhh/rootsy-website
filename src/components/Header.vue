@@ -33,7 +33,7 @@ export default {
   mounted() {
     const kes = document.createElement('video')
 
-    kes.src = '/video/kes2.mp4'
+    kes.src = '/video/kes2-compressed.mp4'
     kes.type = 'video/mp4'
     kes.autoplay = true
     kes.loop = true
