@@ -1,17 +1,32 @@
 <template>
-  <div id="app">
+  <div :class="{ loading: loading }" id="app">
     <router-view/>
+    <Loader/>
   </div>
 </template>
 
 <script>
-export default {};
+import Loader from '@/components/Loader.vue'
+
+export default {
+  components: {
+    Loader
+  },
+  data() {
+    return {
+      loading: true
+    }
+  },
+  mounted() {
+    this.loading = false
+  }
+}
 </script>
 
 <style lang="scss">
-@import "@/sass/_reset.scss";
-@import "@/sass/_settings.scss";
-@import "@/sass/_fonts.scss";
+@import '@/sass/_reset.scss';
+@import '@/sass/_settings.scss';
+@import '@/sass/_fonts.scss';
 
 html,
 body,
@@ -25,7 +40,7 @@ body,
 }
 
 body {
-  font-family: "UntitledSans", Helvetica, Arial, sans-serif;
+  font-family: 'UntitledSans', Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
   -webkit-font-smoothing: antialiased;
@@ -151,7 +166,7 @@ div.section-title {
   font-size: 2.7em;
   line-height: 1.3em;
   margin-bottom: 0.5em;
-  font-family: "CanelaDeck";
+  font-family: 'CanelaDeck';
 }
 
 .with-icon-left {
@@ -161,13 +176,13 @@ div.section-title {
 }
 
 .icon-eye-blue {
-  background: url("/img/icon/eye-solid-blue.svg") no-repeat 0 45%;
+  background: url('/img/icon/eye-solid-blue.svg') no-repeat 0 45%;
   background-size: 36px 36px;
   padding-left: calc(36px);
 }
 
 .icon-eye-pink {
-  background: url("/img/icon/eye-solid-pink.svg") no-repeat 0 45%;
+  background: url('/img/icon/eye-solid-pink.svg') no-repeat 0 45%;
   background-size: 36px 36px;
   padding-left: calc(36px);
 }
