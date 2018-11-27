@@ -23,7 +23,9 @@
             <img src="/img/icon/browser-chrome-icons.svg" alt="Browser Window Mockup Icons" />
           </div>
           <div class="browser-window--viewport">
-            <img :src="clientAtIndex.image" :alt="'Client: ' + clientAtIndex.title" />
+            <template v-for="(client, key) in clients">
+              <img v-show="key == clientIndex" :src="client.image" :alt="client.title" :key="client.id" />
+            </template>
           </div>
         </div>
       </div>
@@ -35,6 +37,7 @@
 export default {
   data() {
     return {
+      rotateDelay: 500,
       playing: true,
       counter: 0,
       clientIndex: 0,
@@ -158,7 +161,7 @@ export default {
 
       setTimeout(() => {
         this.rotate()
-      }, 500)
+      }, this.rotateDelay)
     },
     switchClientTo(index) {
       this.playing = false
