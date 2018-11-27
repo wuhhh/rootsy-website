@@ -4,7 +4,7 @@
       <video id="kes" src="/video/kes2-compressed.mp4" type="video/mp4" autoplay loop muted />
     </template>
     <div class="layout">
-      <img class="logotype" src="/img/rootsy-logo.svg" />
+      <Logo />
       <Nav />
     </div>
     <h1 class="main">Web Design &amp; Development</h1>
@@ -20,6 +20,7 @@
 
 <script>
 import Nav from '@/components/Nav.vue'
+import Logo from '@/components/Logo.vue'
 
 export default {
   data() {
@@ -28,7 +29,8 @@ export default {
     }
   },
   components: {
-    Nav
+    Nav,
+    Logo
   },
   mounted() {
     const kes = document.createElement('video')
