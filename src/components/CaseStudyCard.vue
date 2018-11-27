@@ -10,7 +10,7 @@
                 {{ caseStudy.excerpt }}
               </p>
               <p>
-              <AnchorViewCaseStudy isDark="false" url="#" />
+              <AnchorViewCaseStudy isDark="false" :slug="caseStudy.title_slug" />
               </p>
             </div>
           </div>

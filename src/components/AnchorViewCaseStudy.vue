@@ -1,11 +1,10 @@
 <template>
   <div class="view-case-study">
-    <a 
+    <router-link :to="{ name: 'case-study-show', params: { titleslug: slug }}"
       @mouseover="mouseOver()" 
       :class="[{ 'play-transition': playTransition }, 'icon-eye-' + color ]" 
-      :href="url" 
       class="icon icon-before"
-    >View case study</a>
+    >View case study</router-link>
   </div>
 </template>
 
@@ -19,7 +18,11 @@ export default {
   },
   props: {
     isDark: String,
-    url: String
+    slug: {
+      type: String,
+      default: '',
+      required: false
+    }
   },
   computed: {
     color() {
@@ -28,6 +31,7 @@ export default {
   },
   methods: {
     mouseOver() {
+      console.log('mosueover')
       if (!this.playTransition) {
         this.playTransition = true
 

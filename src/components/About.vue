@@ -4,24 +4,16 @@
     <div class="pad">
       <div class="section-title">About Rootsy</div>
       <div class="layout">
-        <img class="profile" src="/img/hr.png" alt="Huw Roberts" />
+        <img class="profile" src="/img/hr.png" alt="Huw Roberts">
         <div class="heading">
-          <SpanClipReveal>Rootsy is the web design studio of Huw Roberts</SpanClipReveal>
+          <SpanClipReveal>{{ aboutMe.title }}</SpanClipReveal>
         </div>
-        
         <div class="about--description">
-          <p>
-            <strong>For 10 years</strong> I've been producing design and code for the web. I've worked with clients from all over the world on a huge number of projects, from small scale sites for individuals and small businesses to projects spanning many months and in some cases many years for larger, long-standing customers.
-          </p>
-          <p>
-            My design work is elegant and understated with an attention to small detail. I enjoy working for people who share an appreciation for these things, and particularly with clients in the creative sectors, such as music and the arts. When I’m not making websites, I’m producing music and taking care of my record label.
-          </p>
-          <p>
-            I’m based in South Wales, the UK, where I work from a cosy home office. I’m married with two children. All that’s missing is a dog <img width="26" class="inline" src="/img/icon/dog-emoji.png" alt="Dog Emoji" />
-          </p>
+          <div v-if="aboutMe" v-html="body_md"/>
           <p class="availability">
-            <SpanClipReveal>
-              <span class="availability--avail">Next Availability:</span> February 2019
+            <SpanClipReveal v-show="aboutMe.next_available">
+              <span class="availability--avail">Next Availability:</span>
+              {{ aboutMe.next_available }}
             </SpanClipReveal>
           </p>
         </div>
@@ -32,6 +24,12 @@
 
 <script>
 import SpanClipReveal from '@/components/SpanClipReveal.vue'
+import paper from 'paper'
+import { mapState } from 'vuex'
+
+var md = require('markdown-it')({
+  html: true
+})
 
 export default {
   mounted() {
@@ -43,7 +41,16 @@ export default {
     this.$el.appendChild(script)
 
     // Make sure Paper inits after route change
-    this.$root.$options.paper.paper.PaperScript.load()
+    paper.PaperScript.load()
+  },
+  created() {
+    this.$store.dispatch('fetchAboutMe')
+  },
+  computed: {
+    ...mapState(['aboutMe']),
+    body_md() {
+      return md.render(this.aboutMe.body)
+    }
   },
   components: {
     SpanClipReveal

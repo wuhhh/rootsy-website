@@ -14,7 +14,17 @@ const apiClient = axios.create({
 
 export default {
   getCaseStudies() {
-    return apiClient.get('/collections/get/casestudies')
+    return apiClient.post('/collections/get/casestudies')
+  },
+  getCaseStudy(titleslug) {
+    return apiClient.post('/collections/get/casestudies', {
+      filter: {
+        title_slug: titleslug
+      }
+    })
+  },
+  getAboutMe() {
+    return apiClient.post('/singletons/get/about')
   }
   /*
   getEvents(perPage, page) {
