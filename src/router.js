@@ -6,7 +6,7 @@ import store from './store'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -31,3 +31,16 @@ export default new Router({
     }
   ]
 })
+
+router.beforeEach((routeTo, routeFrom, next) => {
+  store.dispatch('setLoading', true)
+  setTimeout(() => {
+    next()
+  }, 1000)
+})
+
+router.afterEach(() => {
+  store.dispatch('setLoading', false)
+})
+
+export default router

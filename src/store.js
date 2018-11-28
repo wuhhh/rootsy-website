@@ -8,7 +8,8 @@ export default new Vuex.Store({
   state: {
     caseStudies: [],
     caseStudy: {},
-    aboutMe: ''
+    aboutMe: '',
+    loading: true
   },
   mutations: {
     SET_CASE_STUDIES(state, caseStudies) {
@@ -19,6 +20,9 @@ export default new Vuex.Store({
     },
     SET_ABOUT_ME(state, aboutMe) {
       state.aboutMe = aboutMe
+    },
+    SET_LOADING(state, loading) {
+      state.loading = loading
     }
   },
   actions: {
@@ -58,6 +62,9 @@ export default new Vuex.Store({
         .catch(error => {
           console.log('There was an error: ', error.response)
         })
+    },
+    setLoading({ commit }, loading) {
+      commit('SET_LOADING', loading)
     }
   },
   getters: {

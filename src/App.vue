@@ -7,18 +7,14 @@
 
 <script>
 import Loader from '@/components/Loader.vue'
+import { mapState } from 'vuex'
 
 export default {
   components: {
     Loader
   },
-  data() {
-    return {
-      loading: true
-    }
-  },
-  mounted() {
-    this.loading = false
+  computed: {
+    ...mapState(['loading'])
   }
 }
 </script>
@@ -27,6 +23,10 @@ export default {
 @import '@/sass/_reset.scss';
 @import '@/sass/_settings.scss';
 @import '@/sass/_fonts.scss';
+
+#app.loading {
+  /*overflow: hidden;*/
+}
 
 html,
 body,
