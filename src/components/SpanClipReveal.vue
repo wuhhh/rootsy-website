@@ -1,5 +1,7 @@
 <template>
-  <span class="clipped" :style="{ clipPath: clipPath }"><slot></slot></span>
+  <span class="clipped" :style="{ clipPath: clipPath }">
+    <slot></slot>
+  </span>
 </template>
 
 <script>
@@ -30,7 +32,7 @@ export default {
     clipReveal() {
       this.scrollTop = document.documentElement.scrollTop
 
-      if (this.scrollTop + window.innerHeight / 3 >= this.elOffsetTop) {
+      if (this.scrollTop + window.innerHeight / 1.1 >= this.elOffsetTop) {
         this.clipPath = 'inset(0 0 0 0)'
       }
     }
