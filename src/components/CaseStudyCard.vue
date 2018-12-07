@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     fullImagePath(path) {
-      return 'http://www.rootsy.co.uk/cockpit/storage/uploads' + path
+      return 'https://www.rootsy.co.uk/cockpit/storage/uploads' + path
     }
   },
   props: {
