@@ -13,6 +13,12 @@ const apiClient = axios.create({
 })
 
 export default {
+  getBaseURL() {
+    return apiClient.defaults.baseURL
+  },
+  getAccessToken() {
+    return apiClient.defaults.params.token
+  },
   getCaseStudies() {
     return apiClient.post('/collections/get/casestudies')
   },
