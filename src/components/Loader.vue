@@ -52,6 +52,7 @@ export default {}
 #app.loading {
   overflow: hidden;
 }
+
 #app .rootsy-loader {
   position: fixed;
   top: 0;

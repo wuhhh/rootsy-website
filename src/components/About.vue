@@ -6,12 +6,12 @@
       <div class="layout">
         <img class="profile" src="/img/hr.png" alt="Huw Roberts">
         <div class="heading">
-          <SpanClipReveal>{{ aboutMe.title }}</SpanClipReveal>
+          <SpanClipReveal v-if="aboutMe.title">{{ aboutMe.title }}</SpanClipReveal>
         </div>
         <div class="about--description">
           <div v-if="aboutMe" v-html="body_md"/>
           <p class="availability">
-            <SpanClipReveal v-show="aboutMe.next_available">
+            <SpanClipReveal v-if="aboutMe.next_available">
               <span class="availability--avail">Next Availability:</span>
               {{ aboutMe.next_available }}
             </SpanClipReveal>
@@ -36,6 +36,7 @@ export default {
     let script = document.createElement('script')
     script.type = 'text/paperscript'
     script.src = '/scripts/app/paper-siney.js'
+    script.async = true
     script.dataset.paperCanvas = 'siney'
 
     this.$el.appendChild(script)

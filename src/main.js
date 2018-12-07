@@ -5,6 +5,11 @@ import store from './store'
 
 Vue.config.productionTip = false
 
+// https://github.com/quasarframework/quasar/issues/1466#issuecomment-414066098
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual'
+}
+
 new Vue({
   router,
   store,

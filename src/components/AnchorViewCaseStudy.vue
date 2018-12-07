@@ -1,8 +1,9 @@
 <template>
   <div class="view-case-study">
-    <router-link :to="{ name: 'case-study-show', params: { titleslug: slug }}"
-      @mouseover="mouseOver()" 
-      :class="[{ 'play-transition': playTransition }, 'icon-eye-' + color ]" 
+    <router-link
+      :to="{ name: 'case-study-show', params: { titleslug: slug }}"
+      @mouseover.native="mouseOver()"
+      :class="[{ 'play-transition': playTransition }, 'icon-eye-' + color ]"
       class="icon icon-before"
     >View case study</router-link>
   </div>
@@ -31,7 +32,6 @@ export default {
   },
   methods: {
     mouseOver() {
-      console.log('mosueover')
       if (!this.playTransition) {
         this.playTransition = true
 

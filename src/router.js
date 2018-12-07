@@ -6,7 +6,7 @@ import store from './store'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -29,5 +29,28 @@ export default new Router({
           })
       }
     }
-  ]
+  ],
+  scrollBehavior(to, from, savedPosition) {
+    let position = { x: 0, y: 0 }
+    // Keep scroll position when using browser buttons
+    if (savedPosition) {
+      position = savedPosition
+    }
+
+    return position
+  }
 })
+
+router.beforeEach((to, from, next) => {
+  store.dispatch('setLoading', true)
+  // Ensure Loader has enough time to transition
+  setTimeout(function() {
+    next()
+  }, 750)
+})
+
+router.afterEach((to, from) => {
+  store.dispatch('setLoading', false)
+})
+
+export default router
