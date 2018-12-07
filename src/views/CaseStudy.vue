@@ -19,11 +19,21 @@
     </header>
 
     <section class="detail">
+      <template v-for="content in caseStudy.content">
+        <template v-if="content.field.type == 'markdown'">{{ content.value }}</template>
+        <template v-if="content.field.type == 'image'">{{ content.value.path }}</template>
+        <template v-if="content.field.type == 'asset'">
+          It's an asset:
+          <img :src="fetchImage(content.value._id)" alt>
+        </template>
+      </template>
+      <!--
       <img class="inset shadowed" src="/img/work/eir1-big.jpg" alt>
       <img src="/img/work/eir-respon1.jpg" alt>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi magna nunc, pulvinar vitae luctus eget, imperdiet ac mi. Quisque non neque id enim sagittis facilisis eget a leo. Curabitur rutrum ante eu arcu tincidunt, sit amet molestie felis viverra. Aliquam scelerisque sodales odio, in ultricies tortor congue eget. Sed et lacus suscipit, malesuada mi sed, convallis est. Vivamus aliquet enim leo, vel bibendum elit lobortis vitae. Vivamus sagittis nec neque id elementum. Donec bibendum, lacus a euismod dictum, elit magna dignissim velit, ut egestas ipsum ex id metus.</p>
       <img class="inset shadowed" src="/img/work/eir2-big.jpg" alt>
       <p>Etiam quis cursus diam. Ut tincidunt augue eu turpis rhoncus placerat. Aliquam nec est nunc. Morbi ultricies egestas pulvinar. Suspendisse potenti. Sed nec feugiat tortor, quis maximus sem. Sed vulputate risus orci, et efficitur ligula imperdiet ac. Sed mollis nibh quis nibh venenatis, eu dictum est ullamcorper. Morbi sollicitudin vestibulum turpis imperdiet lobortis. Nullam sed turpis augue.</p>
+      -->
     </section>
 
     <nav class="work-prev-next">
@@ -42,6 +52,7 @@
 <script>
 import Nav from '@/components/Nav.vue'
 import Logo from '@/components/Logo.vue'
+import ContentService from '@/services/ContentService.js'
 
 export default {
   components: {
@@ -52,6 +63,26 @@ export default {
     casestudy: {
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    fetchImage(path) {
+      let baseURL = ContentService.getBaseURL()
+      let accessToken = ContentService.getAccessToken()
+
+      // Ref:
+      // <img src="/api/cockpit/image?token=xxtokenxx&src=path&w=200&h=200&f[brighten]=25&o=true" />
+      let cockpitIMG =
+        baseURL +
+        '/cockpit/image?token=' +
+        accessToken +
+        '&src=' +
+        path +
+        '&m=fitToWidth&w=' +
+        300 +
+        '&o=1'
+
+      return cockpitIMG
     }
   },
   computed: {
