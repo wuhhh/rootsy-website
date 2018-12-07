@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="caseStudy">
     <header>
       <div class="layout">
         <Logo/>
@@ -7,7 +7,7 @@
       </div>
       <div class="preamble with-intro">
         <div class="breadcrumb">
-          <a href="/">Index</a> / Case Studies
+          <router-link :to="{ name: 'home' }">Index</router-link>&nbsp;/ Case Studies
         </div>
         <h1 class="main">{{ caseStudy.title }}</h1>
         <div class="intro">

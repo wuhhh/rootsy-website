@@ -29,17 +29,27 @@ const router = new Router({
           })
       }
     }
-  ]
+  ],
+  scrollBehavior(to, from, savedPosition) {
+    let position = { x: 0, y: 0 }
+    // Keep scroll position when using browser buttons
+    if (savedPosition) {
+      position = savedPosition
+    }
+
+    return position
+  }
 })
 
-router.beforeEach((routeTo, routeFrom, next) => {
+router.beforeEach((to, from, next) => {
   store.dispatch('setLoading', true)
-  setTimeout(() => {
+  // Ensure Loader has enough time to transition
+  setTimeout(function() {
     next()
-  }, 1000)
+  }, 750)
 })
 
-router.afterEach(() => {
+router.afterEach((to, from) => {
   store.dispatch('setLoading', false)
 })
 
