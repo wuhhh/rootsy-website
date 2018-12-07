@@ -6,17 +6,15 @@
           <div class="item--words">
             <div class="item--title">{{ caseStudy.title }}</div>
             <div class="item--description">
+              <p>{{ caseStudy.excerpt }}</p>
               <p>
-                {{ caseStudy.excerpt }}
-              </p>
-              <p>
-              <AnchorViewCaseStudy isDark="false" :slug="caseStudy.title_slug" />
+                <AnchorViewCaseStudy isDark="false" :slug="caseStudy.title_slug"/>
               </p>
             </div>
           </div>
         </div>
         <div class="item--image">
-          <img :src="fullImagePath(caseStudy.image.path)" :alt="caseStudy.title" />
+          <img :src="fullImagePath(caseStudy.image.path)" :alt="caseStudy.title">
         </div>
       </div>
     </div>
