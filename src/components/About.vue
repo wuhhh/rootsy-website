@@ -36,6 +36,7 @@ export default {
     let script = document.createElement('script')
     script.type = 'text/paperscript'
     script.src = '/scripts/app/paper-siney.js'
+    script.async = true
     script.dataset.paperCanvas = 'siney'
 
     this.$el.appendChild(script)
