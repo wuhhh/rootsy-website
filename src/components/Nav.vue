@@ -2,13 +2,17 @@
   <nav data-menu-name="primary" class="menu menu-primary" :class="{ open: menuOpen }">
     <div @click="toggleMenuOpen()" data-menu-toggle="primary" class="menu--toggle">
       <svg viewBox="0 0 40 40" width="40">
-        <path d="M29,16c0,0.5-0.5,1-1,1H12c-0.6,0-1-0.5-1-1v-1c0-0.6,0.4-1,1-1h16c0.5,0,1,0.4,1,1V16z"/>
-        <path d="M29,25c0,0.5-0.5,1-1,1H12c-0.6,0-1-0.5-1-1v-1c0-0.5,0.4-1,1-1h16c0.5,0,1,0.5,1,1V25z"/>
+        <path
+          d="M29,16c0,0.5-0.5,1-1,1H12c-0.6,0-1-0.5-1-1v-1c0-0.6,0.4-1,1-1h16c0.5,0,1,0.4,1,1V16z"
+        ></path>
+        <path
+          d="M29,25c0,0.5-0.5,1-1,1H12c-0.6,0-1-0.5-1-1v-1c0-0.5,0.4-1,1-1h16c0.5,0,1,0.5,1,1V25z"
+        ></path>
       </svg>
     </div>
     <div class="menu--drawer">
       <a href="#">Index</a>
-       <router-link :to="{ name: 'case-study-show', params: { id: 1 } }">About</router-link>
+      <a href="#">About</a>
       <a href="#">hello@rootsy.co.uk</a>
     </div>
   </nav>
@@ -18,18 +22,18 @@ export default {
   data() {
     return {
       menuOpen: false
-    };
+    }
   },
   methods: {
     toggleMenuOpen() {
-      this.menuOpen = !this.menuOpen;
+      this.menuOpen = !this.menuOpen
     }
   }
-};
+}
 </script>
 
 <style lang="scss">
-@import "@/sass/_settings.scss";
+@import '@/sass/_settings.scss';
 
 nav.menu-primary {
   position: relative;
