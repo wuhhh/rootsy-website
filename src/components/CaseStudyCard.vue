@@ -14,7 +14,11 @@
           </div>
         </div>
         <div class="item--image">
-          <img :src="fullImagePath(caseStudy.image.path)" :alt="caseStudy.title">
+          <ImageSet
+            :path="'https://www.rootsy.co.uk/cockpit/storage/uploads' + caseStudy.image.path"
+            :alt="caseStudy.title"
+            classes="test"
+          />
         </div>
       </div>
     </div>
@@ -23,15 +27,12 @@
 
 <script>
 import AnchorViewCaseStudy from '@/components/AnchorViewCaseStudy.vue'
+import ImageSet from '@/components/ImageSet.vue'
 
 export default {
   components: {
-    AnchorViewCaseStudy
-  },
-  methods: {
-    fullImagePath(path) {
-      return 'https://www.rootsy.co.uk/cockpit/storage/uploads' + path
-    }
+    AnchorViewCaseStudy,
+    ImageSet
   },
   props: {
     caseStudy: Object

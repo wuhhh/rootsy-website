@@ -19,14 +19,15 @@
     </header>
 
     <section class="detail">
-      <template v-for="content in caseStudy.content">
-        <template v-if="content.field.type == 'markdown'">{{ content.value }}</template>
-        <template v-if="content.field.type == 'image'">{{ content.value.path }}</template>
-        <template v-if="content.field.type == 'asset'">
-          It's an asset:
-          <img :src="fetchImage(content.value._id)" alt>
-        </template>
-      </template>
+      <div v-for="(content, index) in caseStudy.content" :key="index">
+        <p v-if="content.field.type == 'markdown'">{{ content.value }}</p>
+        <ImageSet
+          v-if="content.field.type == 'asset'"
+          :path="content.value._id"
+          :alt="caseStudy.title"
+          classes="inset shadowed"
+        />
+      </div>
       <!--
       <img class="inset shadowed" src="/img/work/eir1-big.jpg" alt>
       <img src="/img/work/eir-respon1.jpg" alt>
@@ -52,37 +53,18 @@
 <script>
 import Nav from '@/components/Nav.vue'
 import Logo from '@/components/Logo.vue'
-import ContentService from '@/services/ContentService.js'
+import ImageSet from '@/components/ImageSet.vue'
 
 export default {
   components: {
     Nav,
-    Logo
+    Logo,
+    ImageSet
   },
   props: {
     casestudy: {
       type: Object,
       required: true
-    }
-  },
-  methods: {
-    fetchImage(path) {
-      let baseURL = ContentService.getBaseURL()
-      let accessToken = ContentService.getAccessToken()
-
-      // Ref:
-      // <img src="/api/cockpit/image?token=xxtokenxx&src=path&w=200&h=200&f[brighten]=25&o=true" />
-      let cockpitIMG =
-        baseURL +
-        '/cockpit/image?token=' +
-        accessToken +
-        '&src=' +
-        path +
-        '&m=fitToWidth&w=' +
-        300 +
-        '&o=1'
-
-      return cockpitIMG
     }
   },
   computed: {
