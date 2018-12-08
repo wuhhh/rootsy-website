@@ -20,7 +20,7 @@
 
     <section class="detail">
       <div v-for="(content, index) in caseStudy.content" :key="index">
-        <p v-if="content.field.type == 'markdown'">{{ content.value }}</p>
+        <BaseMarkdown v-if="content.field.type == 'markdown'" :content="content.value"></BaseMarkdown>
         <ImageSet
           v-if="content.field.type == 'asset'"
           :path="content.value._id"
@@ -28,13 +28,6 @@
           classes="inset shadowed"
         />
       </div>
-      <!--
-      <img class="inset shadowed" src="/img/work/eir1-big.jpg" alt>
-      <img src="/img/work/eir-respon1.jpg" alt>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi magna nunc, pulvinar vitae luctus eget, imperdiet ac mi. Quisque non neque id enim sagittis facilisis eget a leo. Curabitur rutrum ante eu arcu tincidunt, sit amet molestie felis viverra. Aliquam scelerisque sodales odio, in ultricies tortor congue eget. Sed et lacus suscipit, malesuada mi sed, convallis est. Vivamus aliquet enim leo, vel bibendum elit lobortis vitae. Vivamus sagittis nec neque id elementum. Donec bibendum, lacus a euismod dictum, elit magna dignissim velit, ut egestas ipsum ex id metus.</p>
-      <img class="inset shadowed" src="/img/work/eir2-big.jpg" alt>
-      <p>Etiam quis cursus diam. Ut tincidunt augue eu turpis rhoncus placerat. Aliquam nec est nunc. Morbi ultricies egestas pulvinar. Suspendisse potenti. Sed nec feugiat tortor, quis maximus sem. Sed vulputate risus orci, et efficitur ligula imperdiet ac. Sed mollis nibh quis nibh venenatis, eu dictum est ullamcorper. Morbi sollicitudin vestibulum turpis imperdiet lobortis. Nullam sed turpis augue.</p>
-      -->
     </section>
 
     <nav class="work-prev-next">

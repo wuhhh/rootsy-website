@@ -9,7 +9,7 @@
           <SpanClipReveal v-if="aboutMe.title">{{ aboutMe.title }}</SpanClipReveal>
         </div>
         <div class="about--description">
-          <div v-if="aboutMe" v-html="body_md"/>
+          <BaseMarkdown v-if="aboutMe" :content="aboutMe.body"/>
           <p class="availability">
             <SpanClipReveal v-if="aboutMe.next_available">
               <span class="availability--avail">Next Availability:</span>
@@ -26,10 +26,6 @@
 import SpanClipReveal from '@/components/SpanClipReveal.vue'
 import paper from 'paper'
 import { mapState } from 'vuex'
-
-var md = require('markdown-it')({
-  html: true
-})
 
 export default {
   mounted() {
