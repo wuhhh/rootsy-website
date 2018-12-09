@@ -8,7 +8,7 @@
             <div class="item--description">
               <p>{{ caseStudy.excerpt }}</p>
               <p>
-                <AnchorViewCaseStudy isDark="false" :slug="caseStudy.title_slug"/>
+                <AnchorViewCaseStudy :isDark="caseStudy.is_dark" :slug="caseStudy.title_slug"/>
               </p>
             </div>
           </div>
