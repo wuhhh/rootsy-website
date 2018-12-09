@@ -18,7 +18,10 @@ export default {
     }
   },
   props: {
-    isDark: String,
+    isDark: {
+      type: Boolean,
+      default: false
+    },
     slug: {
       type: String,
       default: '',
@@ -27,7 +30,7 @@ export default {
   },
   computed: {
     color() {
-      return this.isDark === 'true' ? 'pink' : 'blue'
+      return this.isDark ? 'pink' : 'blue'
     }
   },
   methods: {
