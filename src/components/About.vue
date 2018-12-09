@@ -4,7 +4,7 @@
     <div class="pad">
       <div class="section-title">About Rootsy</div>
       <div class="layout">
-        <img class="profile" src="/img/hr.png" alt="Huw Roberts">
+        <img v-if="aboutMe" class="profile" :src="profilePic" alt="Huw Roberts">
         <div class="heading">
           <SpanClipReveal v-if="aboutMe.title">{{ aboutMe.title }}</SpanClipReveal>
         </div>
@@ -44,7 +44,13 @@ export default {
     this.$store.dispatch('fetchAboutMe')
   },
   computed: {
-    ...mapState(['aboutMe'])
+    ...mapState(['aboutMe']),
+    profilePic() {
+      return (
+        'https://www.rootsy.co.uk/cockpit/storage/uploads' +
+        this.aboutMe.profile_pic.path
+      )
+    }
   },
   components: {
     SpanClipReveal
