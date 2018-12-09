@@ -11,13 +11,21 @@
       </svg>
     </div>
     <div class="menu--drawer">
-      <a href="#">Index</a>
-      <a href="#">About</a>
-      <a href="#">hello@rootsy.co.uk</a>
+      <a @click.prevent="handleNav($event)" href="#">Index</a>
+      <a
+        @click.prevent="handleNav($event)"
+        data-to-element="section.featured-work"
+        href="#"
+      >Case Studies</a>
+      <a @click.prevent="handleNav($event)" data-to-element="section.about" href="#">About</a>
+      <a @click.prevent="handleNav($event)" href="#">hello@rootsy.co.uk</a>
     </div>
   </nav>
 </template>
 <script>
+import router from '@/router'
+var VueScrollTo = require('vue-scrollto')
+
 export default {
   data() {
     return {
@@ -27,6 +35,20 @@ export default {
   methods: {
     toggleMenuOpen() {
       this.menuOpen = !this.menuOpen
+    },
+    handleNav(event) {
+      if (window.location.pathname != '/') {
+        // Route change
+        router.push({ name: 'home' }, () => {
+          // Completed
+          setTimeout(() => {
+            VueScrollTo.scrollTo(event.target.getAttribute('data-to-element'))
+          }, 750)
+        })
+      } else {
+        // Scroll
+        VueScrollTo.scrollTo(event.target.getAttribute('data-to-element'))
+      }
     }
   }
 }
