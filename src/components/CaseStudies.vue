@@ -1,6 +1,6 @@
 <template>
   <section class="featured-work">
-    <CaseStudyCard v-for="caseStudy in caseStudies.entries" :key="caseStudy._id" :caseStudy="caseStudy" />
+    <CaseStudyCard v-for="caseStudy in caseStudies" :key="caseStudy._id" :caseStudy="caseStudy"/>
   </section>
 </template>
 

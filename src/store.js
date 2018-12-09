@@ -29,7 +29,7 @@ export default new Vuex.Store({
     fetchCaseStudies({ commit }) {
       ContentService.getCaseStudies()
         .then(response => {
-          commit('SET_CASE_STUDIES', response.data)
+          commit('SET_CASE_STUDIES', response.data.entries)
         })
         .catch(error => {
           console.log('There was an error: ', error.response)
@@ -37,21 +37,21 @@ export default new Vuex.Store({
     },
     fetchCaseStudy({ commit, getters }, titleslug) {
       // Check if it exists in caseStudies
-      /*
       var casestudy = getters.getCaseStudyByID(titleslug)
 
       if (casestudy) {
         commit('SET_CASE_STUDY', casestudy)
-      } else {*/
-      return ContentService.getCaseStudy(titleslug)
-        .then(response => {
-          commit('SET_CASE_STUDY', response.data)
-          return response.data
-        })
-        .catch(error => {
-          console.log('There was an error: ', error.response)
-        })
-      //}
+        return casestudy
+      } else {
+        return ContentService.getCaseStudy(titleslug)
+          .then(response => {
+            commit('SET_CASE_STUDY', response.data.entries[0])
+            return response.data.entries[0]
+          })
+          .catch(error => {
+            console.log('There was an error: ', error.response)
+          })
+      }
     },
     fetchAboutMe({ commit }) {
       return ContentService.getAboutMe()
@@ -69,9 +69,13 @@ export default new Vuex.Store({
   },
   getters: {
     getCaseStudyByID: state => titleslug => {
-      return state.caseStudies.find(
-        casestudy => casestudy.title_slug === titleslug
-      )
+      if (state.caseStudies.length > 0) {
+        return state.caseStudies.find(
+          casestudy => casestudy.title_slug === titleslug
+        )
+      } else {
+        return null
+      }
     }
   }
 })

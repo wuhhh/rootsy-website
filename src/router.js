@@ -24,7 +24,7 @@ const router = new Router({
         store
           .dispatch('fetchCaseStudy', routeTo.params.titleslug)
           .then(casestudy => {
-            routeTo.params.casestudy = casestudy
+            routeTo.params.caseStudy = casestudy
             next()
           })
       }

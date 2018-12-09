@@ -55,14 +55,9 @@ export default {
     ImageSet
   },
   props: {
-    casestudy: {
+    caseStudy: {
       type: Object,
       required: true
-    }
-  },
-  computed: {
-    caseStudy() {
-      return this.casestudy.entries[0]
     }
   }
 }
