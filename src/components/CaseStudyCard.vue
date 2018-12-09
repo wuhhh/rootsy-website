@@ -15,6 +15,9 @@
         </div>
         <div class="item--image">
           <ImageSet
+            :width="caseStudy.image.width"
+            :height="caseStudy.image.height"
+            :backgroundColor="caseStudy.image.colors[3]"
             :path="'https://www.rootsy.co.uk/cockpit/storage/uploads' + caseStudy.image.path"
             :alt="caseStudy.title"
             classes="test"
