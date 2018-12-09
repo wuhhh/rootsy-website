@@ -16,9 +16,6 @@ export default {
   },
   components: {
     Loader
-  },
-  mounted() {
-    store.dispatch('setLoading', false)
   }
 }
 </script>
@@ -27,19 +24,6 @@ export default {
 @import '@/sass/_reset.scss';
 @import '@/sass/_settings.scss';
 @import '@/sass/_fonts.scss';
-
-.slide-fade-enter-active,
-.slide-fade-leave-active {
-  transition: all 0.3s ease;
-}
-.slide-fade-leave-active {
-  transition-delay: 0.3s;
-}
-.slide-fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active below version 2.1.8 */ {
-  transform: translateX(10px);
-  opacity: 0;
-}
 
 html,
 body,
