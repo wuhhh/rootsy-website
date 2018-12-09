@@ -20,7 +20,9 @@ export default {
     return apiClient.defaults.params.token
   },
   getCaseStudies() {
-    return apiClient.post('/collections/get/casestudies')
+    return apiClient.post('/collections/get/casestudies', {
+      filter: { published: true }
+    })
   },
   getCaseStudy(titleslug) {
     return apiClient.post('/collections/get/casestudies', {
@@ -32,15 +34,4 @@ export default {
   getAboutMe() {
     return apiClient.post('/singletons/get/about')
   }
-  /*
-  getEvents(perPage, page) {
-    return apiClient.get('/events/?_limit=' + perPage + '&_page=' + page)
-  },
-  getEvent(id) {
-    return apiClient.get('/events/' + id)
-  },
-  postEvent(event) {
-    return apiClient.post('/events', event)
-  }
-  */
 }
