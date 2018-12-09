@@ -44,10 +44,7 @@ export default {
     this.$store.dispatch('fetchAboutMe')
   },
   computed: {
-    ...mapState(['aboutMe']),
-    body_md() {
-      return md.render(this.aboutMe.body)
-    }
+    ...mapState(['aboutMe'])
   },
   components: {
     SpanClipReveal
