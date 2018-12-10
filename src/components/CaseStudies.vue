@@ -29,7 +29,6 @@ export default {
 section.featured-work {
   .featured-work--item {
     overflow: hidden; /* Knock out drop shadow */
-    cursor: pointer;
   }
 
   .featured-work--item:nth-of-type(1) {
