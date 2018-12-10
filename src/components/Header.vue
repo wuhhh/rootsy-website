@@ -1,18 +1,25 @@
 <template>
   <header class="fit-height">
     <template v-if="videoIsReady">
-      <video id="kes" src="/video/kes2-compressed.mp4" type="video/mp4" autoplay loop muted />
+      <transition appear name="fade-in">
+        <video id="kes" src="/video/kes2-compressed.mp4" type="video/mp4" autoplay loop muted/>
+      </transition>
     </template>
     <div class="layout">
-      <Logo />
-      <Nav />
+      <Logo/>
+      <Nav/>
     </div>
-    <h1 class="main">Web Design &amp; Development</h1>
+    <transition appear name="fade-in">
+      <h1 class="main">Web Design &amp; Development</h1>
+    </transition>
     <div class="section-title with-icon-left">
       <span>Case Studies</span>
       <svg viewBox="0 0 40 40">
-        <path fill="#eba7a7" d="M25.9,20.9l-0.7-0.7L21,24.3V12h-1v12.3l-4.1-4.1l-0.7,0.7l5,5c0,0,0.1,0.1,0.2,0.1c0,0,0,0,0,0c0,0,0,0,0,0
-          c0.1,0,0.1,0,0.2,0s0.1,0,0.2,0c0,0,0,0,0,0c0,0,0,0,0,0c0.1,0,0.1-0.1,0.2-0.1L25.9,20.9z"/>
+        <path
+          fill="#eba7a7"
+          d="M25.9,20.9l-0.7-0.7L21,24.3V12h-1v12.3l-4.1-4.1l-0.7,0.7l5,5c0,0,0.1,0.1,0.2,0.1c0,0,0,0,0,0c0,0,0,0,0,0
+          c0.1,0,0.1,0,0.2,0s0.1,0,0.2,0c0,0,0,0,0,0c0,0,0,0,0,0c0.1,0,0.1-0.1,0.2-0.1L25.9,20.9z"
+        ></path>
       </svg>
     </div>
   </header>
@@ -56,6 +63,19 @@ export default {
 
 <style lang="scss">
 @import '@/sass/_settings.scss';
+
+.fade-in-enter {
+  opacity: 0;
+}
+
+.fade-in-enter-active {
+  transition: opacity 300ms ease;
+  transition-delay: 500ms;
+}
+
+.fade-in-enter-to {
+  opacity: 1;
+}
 
 header {
   @media screen and (min-width: 600px) {
