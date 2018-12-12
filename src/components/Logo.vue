@@ -1,5 +1,5 @@
 <template>
-  <img class="logotype" src="/img/rootsy-logo.svg" />
+  <img class="logotype" src="/img/rootsy-logo@2x.png">
 </template>
 
 <script>
