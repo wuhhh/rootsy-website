@@ -61,10 +61,16 @@ nav.menu-primary {
   position: relative;
 
   .menu--toggle {
-    transform: translateX(4px);
+    transform: translateX(11px);
 
     svg path {
       transition: all 175ms ease-in-out;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .menu--toggle {
+      transform: translateX(7px);
     }
   }
 
@@ -72,6 +78,12 @@ nav.menu-primary {
     position: absolute;
     right: 0;
     text-align: right;
+    transition: background-color 275ms ease, box-shadow 275ms ease;
+  }
+
+  &.open .menu--drawer {
+    background: white;
+    box-shadow: 0 0 5px 10px white;
   }
 
   .menu--drawer a {
