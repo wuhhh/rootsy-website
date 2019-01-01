@@ -50,7 +50,7 @@ export default {
         this.accessToken +
         '&src=' +
         this.path +
-        '&m=fitToWidth&w=600&q=75&o=1'
+        '&m=fitToWidth&w=600&q=85&o=1'
       )
     },
     srcset() {
@@ -63,7 +63,7 @@ export default {
           this.accessToken +
           '&src=' +
           this.path +
-          '&m=fitToWidth&w=1000&q=75&o=1 1000w'
+          '&m=fitToWidth&w=1000&q=85&o=1 1000w'
       )
 
       // 2000w
@@ -73,7 +73,7 @@ export default {
           this.accessToken +
           '&src=' +
           this.path +
-          '&m=resize&w=2000&q=75&o=1 2000w'
+          '&m=resize&w=2000&q=85&o=1 2000w'
       )
 
       return sets.join(',')
