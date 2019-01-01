@@ -124,6 +124,12 @@ img.inset {
   margin: 0 auto 2em;
 }
 
+@media screen and (min-width: 1280px) {
+  img.inset {
+    max-width: 70%;
+  }
+}
+
 img.shadowed {
   box-shadow: 0px 0 8px 0px #0000003b;
 }
