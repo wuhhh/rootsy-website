@@ -108,7 +108,8 @@ strong {
   font-weight: bold;
 }
 
-img {
+img,
+video {
   max-width: 100%;
   display: block;
 }
@@ -119,13 +120,15 @@ img.inline {
   vertical-align: middle;
 }
 
-img.inset {
+img.inset,
+video.inset {
   max-width: 89%;
   margin: 0 auto 2em;
 }
 
 @media screen and (min-width: 1280px) {
-  img.inset {
+  img.inset,
+  video.inset {
     max-width: 70%;
   }
 }

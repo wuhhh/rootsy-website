@@ -22,11 +22,20 @@
       <div v-for="(content, index) in caseStudy.content" :key="index">
         <BaseMarkdown v-if="content.field.type == 'markdown'" :content="content.value"></BaseMarkdown>
         <ImageSet
-          v-if="content.field.type == 'asset'"
+          v-if="content.field.type == 'asset' && content.value.image"
           :path="content.value._id"
           :alt="caseStudy.title"
           classes="inset shadowed"
         />
+        <video
+          class="inset"
+          v-if="content.field.type == 'asset' && content.value.video"
+          muted
+          autoplay
+          loop
+        >
+          <source :src="getCockpitUploadUrl + content.value.path" :type="content.value.mime">
+        </video>
       </div>
     </section>
 
@@ -47,6 +56,7 @@
 import Nav from '@/components/Nav.vue'
 import Logo from '@/components/Logo.vue'
 import ImageSet from '@/components/ImageSet.vue'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -59,6 +69,9 @@ export default {
       type: Object,
       required: true
     }
+  },
+  computed: {
+    ...mapGetters(['getCockpitUploadUrl'])
   }
 }
 </script>

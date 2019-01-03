@@ -9,7 +9,9 @@ export default new Vuex.Store({
     caseStudies: [],
     caseStudy: {},
     aboutMe: '',
-    loading: true
+    loading: true,
+    cockpitApiUrl: 'https://www.rootsy.co.uk/cockpit/api',
+    cockpitUploadUrl: 'https://www.rootsy.co.uk/cockpit/storage/uploads'
   },
   mutations: {
     SET_CASE_STUDIES(state, caseStudies) {
@@ -76,6 +78,12 @@ export default new Vuex.Store({
       } else {
         return null
       }
+    },
+    getCockpitApiUrl: state => {
+      return state.cockpitApiUrl
+    },
+    getCockpitUploadUrl: state => {
+      return state.cockpitUploadUrl
     }
   }
 })
