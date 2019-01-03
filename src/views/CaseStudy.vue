@@ -28,7 +28,7 @@
           classes="inset shadowed"
         />
         <video
-          class="inset"
+          class="inset shadowed"
           v-if="content.field.type == 'asset' && content.value.video"
           muted
           autoplay

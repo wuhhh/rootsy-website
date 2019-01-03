@@ -133,7 +133,7 @@ video.inset {
   }
 }
 
-img.shadowed {
+.shadowed {
   box-shadow: 0px 0 8px 0px #0000003b;
 }
 
