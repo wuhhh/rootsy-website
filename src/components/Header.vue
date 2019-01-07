@@ -55,8 +55,8 @@ export default {
     // Fix for cached video loading before onplaythrough event is registered
     // See: https://stackoverflow.com/a/26034492
     setTimeout(() => {
-      if (kes.readyState > 3) this.videoIsReady
-    }, 100)
+      if (kes.readyState > 3) this.videoIsReady = true
+    }, 500)
   }
 }
 </script>
