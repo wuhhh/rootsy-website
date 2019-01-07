@@ -19,14 +19,16 @@ export default {
     }
   },
   mounted() {
-    this.clipPath = 'inset(0 100% 0 0)'
-    this.scrollTop = document.documentElement.scrollTop
+    setTimeout(() => {
+      this.clipPath = 'inset(0 100% 0 0)'
+      this.scrollTop = document.documentElement.scrollTop
 
-    this.clipReveal()
-
-    window.addEventListener('scroll', () => {
       this.clipReveal()
-    })
+
+      window.addEventListener('scroll', () => {
+        this.clipReveal()
+      })
+    }, 500)
   },
   methods: {
     clipReveal() {
