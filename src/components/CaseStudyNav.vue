@@ -1,18 +1,63 @@
 <template>
-  <nav class="work-prev-next">
+  <nav v-if="this.caseStudySlugs.length" class="work-prev-next">
     <div class="layout">
-      <a href="#" class="work-prev-next--prev">
-        <span href="#" rel="prev">Prev</span>
-      </a>
-      <a href="#" class="work-prev-next--next">
-        <span href="#" rel="next">Next</span>
-      </a>
+      <router-link
+        :to="{ name: 'case-study-show', params: { titleslug: prev }}"
+        class="work-prev-next--prev"
+        rel="prev"
+      >
+        <span>Prev</span>
+      </router-link>
+
+      <router-link
+        :to="{ name: 'case-study-show', params: { titleslug: next }}"
+        class="work-prev-next--next"
+        rel="next"
+      >
+        <span>Next</span>
+      </router-link>
     </div>
   </nav>
 </template>
 
 <script>
-export default {}
+import { mapState } from 'vuex'
+
+export default {
+  created() {
+    this.$store.dispatch('fetchCaseStudySlugs')
+  },
+  props: {
+    current: {
+      type: String,
+      required: true
+    }
+  },
+  computed: {
+    ...mapState(['caseStudySlugs']),
+    currIndex() {
+      return _.findIndex(this.caseStudySlugs, o => {
+        return o._id == this.current
+      })
+    },
+    next() {
+      let next =
+        this.currIndex + 1 > this.caseStudySlugs.length - 1
+          ? 0
+          : this.currIndex + 1
+
+      return this.caseStudySlugs[next].title_slug
+    },
+    prev() {
+      let prev =
+        this.currIndex - 1 < 0
+          ? this.caseStudySlugs.length - 1
+          : this.currIndex - 1
+
+      return this.caseStudySlugs[prev].title_slug
+    }
+  }
+}
 </script>
 
 <style lang="scss">

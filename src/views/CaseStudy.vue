@@ -39,7 +39,7 @@
       </div>
     </section>
 
-    <CaseStudyNav/>
+    <CaseStudyNav :current="caseStudy._id"/>
   </div>
 </template>
 
@@ -49,6 +49,7 @@ import CaseStudyNav from '@/components/CaseStudyNav.vue'
 import Logo from '@/components/Logo.vue'
 import ImageSet from '@/components/ImageSet.vue'
 import { mapGetters } from 'vuex'
+import store from '@/store'
 
 export default {
   components: {
@@ -65,6 +66,15 @@ export default {
   },
   computed: {
     ...mapGetters(['getCockpitUploadUrl'])
+  },
+  beforeRouteUpdate(routeTo, routeFrom, next) {
+    // We do this bcause: https://router.vuejs.org/guide/essentials/dynamic-matching.html#reacting-to-params-changes
+    store
+      .dispatch('fetchCaseStudy', routeTo.params.titleslug)
+      .then(casestudy => {
+        routeTo.params.caseStudy = casestudy
+        next()
+      })
   }
 }
 </script>
