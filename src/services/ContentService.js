@@ -31,6 +31,9 @@ export default {
       }
     })
   },
+  getCaseStudySlugs() {
+    return apiClient.post('/casestudyslugs')
+  },
   getAboutMe() {
     return apiClient.post('/singletons/get/about')
   }

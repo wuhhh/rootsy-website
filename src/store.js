@@ -8,6 +8,7 @@ export default new Vuex.Store({
   state: {
     caseStudies: [],
     caseStudy: {},
+    caseStudySlugs: [],
     aboutMe: '',
     loading: true,
     cockpitApiUrl: 'https://www.rootsy.co.uk/cockpit/api',
@@ -19,6 +20,9 @@ export default new Vuex.Store({
     },
     SET_CASE_STUDY(state, caseStudy) {
       state.caseStudy = caseStudy
+    },
+    SET_CASE_STUDY_SLUGS(state, caseStudySlugs) {
+      state.caseStudySlugs = caseStudySlugs
     },
     SET_ABOUT_ME(state, aboutMe) {
       state.aboutMe = aboutMe
@@ -54,6 +58,15 @@ export default new Vuex.Store({
             console.log('There was an error: ', error.response)
           })
       }
+    },
+    fetchCaseStudySlugs({ commit }) {
+      ContentService.getCaseStudySlugs()
+        .then(response => {
+          commit('SET_CASE_STUDY_SLUGS', response.data)
+        })
+        .catch(error => {
+          console.log('There was an error: ', error.response)
+        })
     },
     fetchAboutMe({ commit }) {
       return ContentService.getAboutMe()
