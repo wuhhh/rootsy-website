@@ -1,6 +1,6 @@
 <template>
   <div :class="{loading: loading}" id="app">
-    <router-view/>
+    <router-view :key="$route.fullPath"/>
     <Loader/>
   </div>
 </template>
