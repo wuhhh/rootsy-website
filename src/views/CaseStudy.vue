@@ -24,7 +24,10 @@
         <ImageSet
           v-if="content.field.type == 'asset' && content.value.image"
           :path="content.value._id"
-          :alt="caseStudy.title"
+          :alt="content.value.title"
+          :width="content.value.width"
+          :height="content.value.height"
+          :backgroundColor="content.value.colors[3]"
           classes="inset shadowed"
         />
         <video
