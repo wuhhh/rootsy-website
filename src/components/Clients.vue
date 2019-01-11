@@ -1,5 +1,5 @@
 <template>
-   <section class="fit-height clients">
+  <section class="fit-height clients">
     <div class="pad">
       <div class="section-title">Clients</div>
       <div class="layout-outer">
@@ -7,7 +7,13 @@
           <div class="heading">Selected work &nbsp;2008&nbsp;&mdash;&nbsp;2018</div>
           <div id="client-list" class="cols client-list">
             <div class="client-list--item" v-for="(client, key) in clients" :key="client.id">
-              <a v-if="!client.defunct" @click.prevent="switchClientTo(key)" :class="{'cli--defunct': client.defunct}" :data-image-src="client.image" href="#">
+              <a
+                v-if="!client.defunct"
+                @click.prevent="switchClientTo(key)"
+                :class="{'cli--defunct': client.defunct}"
+                :data-image-src="client.image"
+                href="#"
+              >
                 <span class="cli--year">{{ client.year }}</span>&nbsp;
                 <span class="cli--title">{{ client.title }}</span>
               </a>
@@ -20,11 +26,16 @@
         </div>
         <div class="browser-window">
           <div class="browser-window--chrome">
-            <img src="/img/icon/browser-chrome-icons.svg" alt="Browser Window Mockup Icons" />
+            <img src="/img/icon/browser-chrome-icons.svg" alt="Browser Window Mockup Icons">
           </div>
           <div class="browser-window--viewport">
             <template v-for="(client, key) in clients">
-              <img v-show="key == clientIndex" :src="client.image" :alt="client.title" :key="client.id" />
+              <img
+                v-show="key == clientIndex"
+                :src="client.image"
+                :alt="client.title"
+                :key="client.id"
+              >
             </template>
           </div>
         </div>
@@ -226,7 +237,7 @@ section.clients {
         font-family: 'Monaco';
         font-size: 0.8em;
         /*vertical-align: text-bottom;*/
-        color: #909090;
+        color: $c-blue;
       }
 
       .cli--title {
