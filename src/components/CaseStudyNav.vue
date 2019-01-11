@@ -36,9 +36,11 @@ export default {
   computed: {
     ...mapState(['caseStudySlugs']),
     currIndex() {
-      return _.findIndex(this.caseStudySlugs, o => {
-        return o._id == this.current
-      })
+      return this.caseStudySlugs
+        .map(function(x) {
+          return x._id
+        })
+        .indexOf(this.current)
     },
     next() {
       let next =
