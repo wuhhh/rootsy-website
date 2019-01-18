@@ -1,6 +1,6 @@
 <template>
   <section class="fit-height about">
-    <Siney/>
+    <Siney v-if="aboutMe"/>
     <div class="pad">
       <div class="section-title">About Rootsy</div>
       <div class="layout">
