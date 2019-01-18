@@ -1,6 +1,6 @@
 <template>
   <section class="fit-height about">
-    <canvas resize="true" id="siney"></canvas>
+    <Siney/>
     <div class="pad">
       <div class="section-title">About Rootsy</div>
       <div class="layout">
@@ -24,22 +24,10 @@
 
 <script>
 import SpanClipReveal from '@/components/SpanClipReveal.vue'
-import paper from 'paper'
+import Siney from '@/components/Siney.vue'
 import { mapState } from 'vuex'
 
 export default {
-  mounted() {
-    let script = document.createElement('script')
-    script.type = 'text/paperscript'
-    script.src = '/scripts/app/paper-siney.js'
-    script.async = true
-    script.dataset.paperCanvas = 'siney'
-
-    this.$el.appendChild(script)
-
-    // Make sure Paper inits after route change
-    paper.PaperScript.load()
-  },
   created() {
     this.$store.dispatch('fetchAboutMe')
   },
@@ -53,7 +41,8 @@ export default {
     }
   },
   components: {
-    SpanClipReveal
+    SpanClipReveal,
+    Siney
   }
 }
 </script>
@@ -71,7 +60,6 @@ section.about {
     left: 0;
     width: 100%;
     height: 100%;
-    transform: scaleX(1.2);
   }
 
   .pad {
