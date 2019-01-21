@@ -4,9 +4,6 @@ import router from './router'
 import store from './store'
 import BaseMarkdown from '@/components/BaseMarkdown.vue'
 
-// Register lodash core
-var _ = require('lodash')
-
 // Global component
 Vue.component('BaseMarkdown', BaseMarkdown)
 

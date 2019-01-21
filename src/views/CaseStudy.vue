@@ -19,12 +19,15 @@
     </header>
 
     <section class="detail">
-      <div v-for="(content, index) in caseStudy.content" :key="index">
+      <div v-for="(content, index) in caseStudy.content" :key="caseStudy._id + '_' + index">
         <BaseMarkdown v-if="content.field.type == 'markdown'" :content="content.value"></BaseMarkdown>
         <ImageSet
           v-if="content.field.type == 'asset' && content.value.image"
           :path="content.value._id"
-          :alt="caseStudy.title"
+          :alt="content.value.title"
+          :width="content.value.width"
+          :height="content.value.height"
+          :backgroundColor="content.value.colors[3]"
           classes="inset shadowed"
         />
         <video
