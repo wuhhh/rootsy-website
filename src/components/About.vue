@@ -73,6 +73,7 @@ section.about {
     order: 1;
     transform: translateX(5%);
     width: 61%;
+    z-index:1;
   }
 
   .about--description {

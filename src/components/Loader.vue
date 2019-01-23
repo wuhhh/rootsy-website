@@ -66,10 +66,13 @@ export default {}
   clip-path: inset(100% 0 0 0);
   transition: clip-path 500ms ease-in-out;
   pointer-events: none;
+  z-index: 2;
 }
+
 #app.loading .rootsy-loader {
   clip-path: inset(0 0 0 0);
 }
+
 nav.menu-primary .menu--drawer a {
   opacity: 0;
 }
