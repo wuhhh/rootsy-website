@@ -125,6 +125,11 @@ section.featured-work {
 
     .item .layout {
       flex-direction: row;
+
+      & > div {
+        flex-basis: 50%;
+        flex-shrink: 0;
+      }
     }
 
     .item--words {

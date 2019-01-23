@@ -93,7 +93,7 @@ export default {
       // See: https://manu.ninja/dominant-colors-for-lazy-loading-images/
       const style = { backgroundColor: this.backgroundColor }
 
-      if (this.width) style.width = `${this.width}px`
+      if (this.width) style.width = '100%'
 
       // If the image is still loading and an
       // aspect ratio could be calculated, we
