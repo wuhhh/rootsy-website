@@ -35,7 +35,7 @@ export default {
     ...mapState(['aboutMe']),
     profilePic() {
       return (
-        'https://www.rootsy.co.uk/cockpit/storage/uploads' +
+        'https://cockpit.rootsy.co.uk/cockpit/storage/uploads' +
         this.aboutMe.profile_pic.path
       )
     }
