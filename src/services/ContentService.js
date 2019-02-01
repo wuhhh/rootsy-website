@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const apiClient = axios.create({
-  baseURL: `https://www.rootsy.co.uk/cockpit/api`,
+  baseURL: `https://cockpit.rootsy.co.uk/cockpit/api`,
   withCredentials: false, // This is the default,
   params: {
     token: 'e7d1063e853ff16e508fbef93fca09'

@@ -11,8 +11,8 @@ export default new Vuex.Store({
     caseStudySlugs: [],
     aboutMe: '',
     loading: true,
-    cockpitApiUrl: 'https://www.rootsy.co.uk/cockpit/api',
-    cockpitUploadUrl: 'https://www.rootsy.co.uk/cockpit/storage/uploads'
+    cockpitApiUrl: 'https://cockpit.rootsy.co.uk/cockpit/api',
+    cockpitUploadUrl: 'https://cockpit.rootsy.co.uk/cockpit/storage/uploads'
   },
   mutations: {
     SET_CASE_STUDIES(state, caseStudies) {
