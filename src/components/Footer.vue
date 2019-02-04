@@ -1,13 +1,13 @@
 <template>
   <footer>
     <div class="pad">
-      <a href="#">Send me an e-mail</a>
+      <a href="mailto:hello@rootsy.co.uk">Send me an e-mail</a>
     </div>
   </footer>
 </template>
 
 <script>
-export default {};
+export default {}
 </script>
 
 <style lang="scss">
@@ -19,7 +19,7 @@ footer {
     padding: 16vmin 8vmin;
   }
 
-  font-family: "CanelaDeck";
+  font-family: 'CanelaDeck';
   font-size: 2.3em;
 
   a {
