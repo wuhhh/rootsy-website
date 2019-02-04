@@ -11,9 +11,7 @@
         </div>
         <h1 class="main">{{ caseStudy.title }}</h1>
         <div class="intro">
-          <p>
-            <strong>Lorem ipsum dolor</strong> sit amet, consectetur adipiscing elit. Morbi magna nunc, pulvinar vitae luctus eget, imperdiet ac mi. Quisque non neque id enim sagittis facilisis eget a leo. Curabitur rutrum ante eu arcu tincidunt, sit amet molestie felis viverra.
-          </p>
+          <BaseMarkdown v-if="caseStudy.intro" :content="caseStudy.intro"></BaseMarkdown>
         </div>
       </div>
     </header>

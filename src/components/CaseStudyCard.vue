@@ -6,7 +6,7 @@
           <div class="item--words">
             <div class="item--title">{{ caseStudy.title }}</div>
             <div class="item--description">
-              <p>{{ caseStudy.excerpt }}</p>
+              <BaseMarkdown :content="caseStudy.excerpt"></BaseMarkdown>
               <p>
                 <AnchorViewCaseStudy :isDark="caseStudy.is_dark" :slug="caseStudy.title_slug"/>
               </p>
