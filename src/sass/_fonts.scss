@@ -26,7 +26,7 @@
   font-weight: normal;
   src: local('UntitledSans'), local('UntitledSans-Regular'),
     url(/fonts/untitled-sans/UntitledSans-Regular.ttf) format('opentype'),
-    url(/fonts/untitled-sans/UntitledSans-Regular.woff) format('woff');
+    url(/fonts/untitled-sans/UntitledSans-Regular.woff) format('woff2');
 }
 
 @font-face {
@@ -44,7 +44,7 @@
   font-weight: bold;
   src: local('UntitledSans-Medium'),
     url(/fonts/untitled-sans/UntitledSans-Medium.ttf) format('opentype'),
-    url(/fonts/untitled-sans/UntitledSans-Medium.woff) format('woff');
+    url(/fonts/untitled-sans/UntitledSans-Medium.woff) format('woff2');
 }
 
 @font-face {
