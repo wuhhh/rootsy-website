@@ -212,21 +212,4 @@ div.section-title {
     margin: 3em auto;
   }
 }
-
-@media screen and (min-width: 1057px) {
-  header .preamble.with-intro .intro {
-    max-width: 850px;
-  }
-
-  header .preamble.with-intro .intro p,
-  section.detail p {
-    font-size: 1.1em;
-    line-height: 1.6em;
-  }
-
-  section.detail p {
-    max-width: 850px;
-    margin: 4em auto;
-  }
-}
 </style>

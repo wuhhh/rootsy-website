@@ -154,16 +154,18 @@ nav.menu-primary {
       text-align: left;
       display: flex;
       justify-content: space-between;
-      width: 400px;
+      width: auto;
     }
 
     .menu--drawer a {
       opacity: 1;
       display: inline-block;
       transform: translateY(0);
-      font-size: 0.85em;
+      font-size: 0.95em;
       pointer-events: all;
       color: #63626b;
+      padding-left: 2vw;
+      padding-right: 2vw;
     }
   }
 }
