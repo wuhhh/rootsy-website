@@ -47,6 +47,7 @@ export default {
   },
   methods: {
     cardPop() {
+      // Don't pop if window size under popAt[0] x popAt[1]
       if (
         window.innerWidth < this.popAt[0] ||
         window.innerHeight < this.popAt[1]
@@ -75,13 +76,6 @@ export default {
     window.addEventListener('scroll', () => {
       this.cardPop()
     })
-
-    /**
-     * Load casestudy images immediately
-     */
-    //const casestudyImgs = document.querySelector('.image-to-load-first')
-    // ... trigger the load of a image before it appears on the viewport
-    //observer.triggerLoad(casestudyImgs);
   },
   components: {
     AnchorViewCaseStudy,
