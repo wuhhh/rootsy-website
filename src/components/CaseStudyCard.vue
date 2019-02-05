@@ -20,7 +20,7 @@
             :backgroundColor="caseStudy.image.colors[3]"
             :path="'https://cockpit.rootsy.co.uk/cockpit/storage/uploads' + caseStudy.image.path"
             :alt="caseStudy.title"
-            classes="test"
+            :loadOnMount="true"
           />
         </div>
       </div>
@@ -65,6 +65,9 @@ export default {
     }
   },
   mounted() {
+    /**
+     * Pop cards
+     */
     this.scrollTop = document.documentElement.scrollTop
 
     this.cardPop()
@@ -72,6 +75,13 @@ export default {
     window.addEventListener('scroll', () => {
       this.cardPop()
     })
+
+    /**
+     * Load casestudy images immediately
+     */
+    //const casestudyImgs = document.querySelector('.image-to-load-first')
+    // ... trigger the load of a image before it appears on the viewport
+    //observer.triggerLoad(casestudyImgs);
   },
   components: {
     AnchorViewCaseStudy,
