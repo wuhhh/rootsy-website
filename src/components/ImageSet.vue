@@ -33,6 +33,10 @@ export default {
     classes: {
       type: String,
       required: false
+    },
+    loadOnMount: {
+      type: Boolean,
+      required: false
     }
   },
   data() {
@@ -132,6 +136,9 @@ export default {
     // element of our component.
     const observer = lozad(this.$el)
     observer.observe()
+
+    // Don't wait for viewport scroll, load immediately
+    if (this.loadOnMount) observer.triggerLoad(this.$el)
   }
 }
 </script>
