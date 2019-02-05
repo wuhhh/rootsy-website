@@ -91,13 +91,11 @@ section.featured-work {
     box-shadow: 0px 10px 18px 0px rgba(0, 0, 0, 0.2);
   }
 
-  /* TODO: Transition on scroll into view */
-
   .item--title,
   .item--description,
   .item--image,
   .pad {
-    transition: transform 750ms ease;
+    transition: transform 750ms ease-in-out;
   }
 
   .item.hello {
