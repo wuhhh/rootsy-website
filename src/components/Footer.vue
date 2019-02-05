@@ -1,7 +1,7 @@
 <template>
   <footer>
     <div class="pad">
-      <a href="mailto:hello@rootsy.co.uk">Send me an e-mail</a>
+      <a href="mailto:hello@rootsy.co.uk">hello@rootsy.co.uk</a>
     </div>
   </footer>
 </template>
