@@ -154,6 +154,51 @@ section.detail {
   }
 }
 
+@media screen and (min-width: 1440px) {
+  header .preamble.with-intro .intro {
+    max-width: 60%;
+  }
+
+  header .preamble.with-intro .intro p,
+  section.detail p {
+    font-size: 1.2em;
+  }
+
+  section.detail p {
+    max-width: 60%;
+  }
+}
+
+@media screen and (min-width: 1660px) {
+  header .preamble.with-intro .intro {
+    max-width: 68%;
+  }
+
+  header .preamble.with-intro .intro p,
+  section.detail p {
+    font-size: 1.3em;
+  }
+
+  section.detail p {
+    max-width: 58%;
+  }
+}
+
+@media screen and (min-width: 1940px) {
+  header .preamble.with-intro .intro {
+    max-width: 64%;
+  }
+
+  header .preamble.with-intro .intro p,
+  section.detail p {
+    font-size: 1.4em;
+  }
+
+  section.detail p {
+    max-width: 55%;
+  }
+}
+
 section.more-work {
   margin-bottom: 4em;
 

@@ -110,6 +110,10 @@ header {
 
   .logotype {
     width: 76px;
+
+    @media screen and (min-width: 1500px) {
+      width: 86px;
+    }
   }
 
   .preamble {
@@ -127,6 +131,10 @@ header {
       font-size: 0.8em;
       text-align: center;
       color: #808080;
+
+      @media screen and (min-width: 1366px) {
+        font-size: 0.95em;
+      }
 
       a {
         color: $c-deeppink;
