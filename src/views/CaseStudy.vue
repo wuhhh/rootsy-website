@@ -95,26 +95,39 @@ section.detail {
     font-size: 0.9em;
     margin-bottom: 3em;
   }
+
+  ul {
+    list-style-type: disc;
+  }
 }
 
 @media screen and (min-width: 620px) {
   header .preamble.with-intro,
-  section.detail p {
-    font-size: 1.1em;
-    line-height: 1.5em;
+  section.detail {
+    p,
+    ul {
+      font-size: 1.1em;
+      line-height: 1.5em;
+    }
   }
 }
 
 @media screen and (min-width: 720px) {
   header .preamble.with-intro .intro p,
-  section.detail p {
-    font-size: 1.2em;
-    line-height: 1.6em;
+  section.detail {
+    p,
+    ul {
+      font-size: 1.2em;
+      line-height: 1.6em;
+    }
   }
 
-  section.detail p {
-    max-width: 80%;
-    margin: 3em auto;
+  section.detail {
+    p,
+    ul {
+      max-width: 80%;
+      margin: 3em auto;
+    }
   }
 }
 
@@ -124,14 +137,20 @@ section.detail {
   }
 
   header .preamble.with-intro .intro p,
-  section.detail p {
-    font-size: 1.1em;
-    line-height: 1.6em;
+  section.detail {
+    p,
+    ul {
+      font-size: 1.1em;
+      line-height: 1.6em;
+    }
   }
 
-  section.detail p {
-    max-width: 850px;
-    margin: 4em auto;
+  section.detail {
+    p,
+    ul {
+      max-width: 850px;
+      margin: 4em auto;
+    }
   }
 }
 
