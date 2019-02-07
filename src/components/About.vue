@@ -101,6 +101,10 @@ section.about {
     transform: translateX(-5%);
   }
 
+  img.dog-emoji {
+    margin-left: 0.5em;
+  }
+
   p.availability {
     color: black;
     font-size: 0.85em;
