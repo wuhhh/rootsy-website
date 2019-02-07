@@ -76,6 +76,9 @@ export default {
         routeTo.params.caseStudy = casestudy
         next()
       })
+  },
+  mounted: function() {
+    console.log(this.$unorphan)
   }
 }
 </script>
