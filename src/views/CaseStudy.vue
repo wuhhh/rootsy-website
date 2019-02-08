@@ -101,6 +101,9 @@ section.detail {
 
   ul {
     list-style-type: disc;
+    padding: 0 3em;
+    font-size: 0.9em;
+    margin-bottom: 3em;
   }
 }
 
@@ -163,12 +166,18 @@ section.detail {
   }
 
   header .preamble.with-intro .intro p,
-  section.detail p {
-    font-size: 1.2em;
+  section.detail {
+    p,
+    ul {
+      font-size: 1.2em;
+    }
   }
 
-  section.detail p {
-    max-width: 60%;
+  section.detail {
+    p,
+    ul {
+      max-width: 60%;
+    }
   }
 }
 
@@ -178,12 +187,18 @@ section.detail {
   }
 
   header .preamble.with-intro .intro p,
-  section.detail p {
-    font-size: 1.3em;
+  section.detail {
+    p,
+    ul {
+      font-size: 1.3em;
+    }
   }
 
-  section.detail p {
-    max-width: 58%;
+  section.detail {
+    p,
+    ul {
+      max-width: 58%;
+    }
   }
 }
 
@@ -193,12 +208,18 @@ section.detail {
   }
 
   header .preamble.with-intro .intro p,
-  section.detail p {
-    font-size: 1.4em;
+  section.detail {
+    p,
+    ul {
+      font-size: 1.4em;
+    }
   }
 
-  section.detail p {
-    max-width: 55%;
+  section.detail {
+    p,
+    ul {
+      max-width: 55%;
+    }
   }
 }
 
