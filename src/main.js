@@ -15,7 +15,7 @@ import unorphan from 'unorphan'
 
 Vue.mixin({
   mounted: function() {
-    unorphan(document.querySelectorAll('h1, p'))
+    unorphan(document.querySelectorAll('p'))
   }
 })
 
