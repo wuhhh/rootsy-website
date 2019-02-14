@@ -11,7 +11,7 @@ export default {
   props: {
     backgroundColor: {
       type: String,
-      default: '#efefef'
+      default: '#eba7a7'
     },
     height: {
       type: Number,

@@ -29,7 +29,6 @@
           :alt="content.value.title"
           :width="content.value.width"
           :height="content.value.height"
-          :backgroundColor="content.value.colors[3]"
           classes="inset shadowed"
         />
         <video

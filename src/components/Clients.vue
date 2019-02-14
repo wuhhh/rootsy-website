@@ -4,7 +4,7 @@
       <div class="section-title">Clients</div>
       <div class="layout-outer">
         <div class="layout">
-          <div class="heading">Selected work &nbsp;2008&nbsp;&mdash;&nbsp;2018</div>
+          <div class="heading">Selected work &nbsp;2008&nbsp;&mdash;&nbsp;2019</div>
           <div id="client-list" class="cols client-list">
             <div class="client-list--item" v-for="(client, key) in clients" :key="client.id">
               <a
