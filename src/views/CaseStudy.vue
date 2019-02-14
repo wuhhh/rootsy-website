@@ -10,14 +10,18 @@
           <router-link :to="{ name: 'home' }">Index</router-link>&nbsp;/ Case Studies
         </div>
         <h1 class="main">{{ caseStudy.title }}</h1>
-        <div class="intro">
-          <BaseMarkdown v-if="caseStudy.intro" :content="caseStudy.intro"></BaseMarkdown>
-        </div>
       </div>
     </header>
 
     <section class="detail">
-      <div v-for="(content, index) in caseStudy.content" :key="caseStudy._id + '_' + index">
+      <div class="chunk">
+        <BaseMarkdown v-if="caseStudy.intro" :content="caseStudy.intro"></BaseMarkdown>
+      </div>
+      <div
+        class="chunk"
+        v-for="(content, index) in caseStudy.content"
+        :key="caseStudy._id + '_' + index"
+      >
         <BaseMarkdown v-if="content.field.type == 'markdown'" :content="content.value"></BaseMarkdown>
         <ImageSet
           v-if="content.field.type == 'asset' && content.value.image"
@@ -76,9 +80,6 @@ export default {
         routeTo.params.caseStudy = casestudy
         next()
       })
-  },
-  mounted: function() {
-    console.log(this.$unorphan)
   }
 }
 </script>
@@ -86,156 +87,60 @@ export default {
 <style lang="scss">
 @import '@/sass/_settings.scss';
 
-section.detail {
-  img {
-    margin-bottom: 2em;
+.chunk {
+  margin: 10vw auto;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  p,
+  ul {
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    margin-bottom: 5vw;
+    max-width: 75vw;
     margin-left: auto;
     margin-right: auto;
-  }
 
-  p {
-    padding: 0 3em;
-    font-size: 0.9em;
-    margin-bottom: 3em;
-  }
-
-  ul {
-    list-style-type: disc;
-    padding: 0 3em;
-    font-size: 0.9em;
-    margin-bottom: 3em;
-  }
-}
-
-@media screen and (min-width: 620px) {
-  header .preamble.with-intro,
-  section.detail {
-    p,
-    ul {
+    @media screen and (min-width: 650px) {
       font-size: 1.1em;
       line-height: 1.5em;
+      max-width: 80vw;
     }
-  }
-}
 
-@media screen and (min-width: 720px) {
-  header .preamble.with-intro .intro p,
-  section.detail {
-    p,
-    ul {
-      font-size: 1.2em;
-      line-height: 1.6em;
-    }
-  }
-
-  section.detail {
-    p,
-    ul {
-      max-width: 80%;
-      margin: 3em auto;
-    }
-  }
-}
-
-@media screen and (min-width: 1057px) {
-  header .preamble.with-intro .intro {
-    max-width: 850px;
-  }
-
-  header .preamble.with-intro .intro p,
-  section.detail {
-    p,
-    ul {
+    @media screen and (min-width: 760px) {
       font-size: 1.1em;
       line-height: 1.6em;
     }
-  }
 
-  section.detail {
-    p,
-    ul {
-      max-width: 850px;
-      margin: 4em auto;
-    }
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  header .preamble.with-intro .intro {
-    max-width: 60%;
-  }
-
-  header .preamble.with-intro .intro p,
-  section.detail {
-    p,
-    ul {
+    @media screen and (min-width: 960px) {
       font-size: 1.2em;
+      line-height: 1.6em;
+    }
+
+    @media screen and (min-width: 1080px) {
+      max-width: 70vw;
+    }
+
+    @media screen and (min-width: 1260px) {
+      max-width: 62vw;
+      margin-bottom: 3vw;
+    }
+
+    @media screen and (min-width: 1990px) {
+      max-width: 1080px;
     }
   }
 
-  section.detail {
-    p,
-    ul {
-      max-width: 60%;
-    }
-  }
-}
-
-@media screen and (min-width: 1660px) {
-  header .preamble.with-intro .intro {
-    max-width: 68%;
+  @media screen and (min-width: 960px) {
+    margin: 7vw auto;
   }
 
-  header .preamble.with-intro .intro p,
-  section.detail {
-    p,
-    ul {
-      font-size: 1.3em;
-    }
-  }
-
-  section.detail {
-    p,
-    ul {
-      max-width: 58%;
-    }
-  }
-}
-
-@media screen and (min-width: 1940px) {
-  header .preamble.with-intro .intro {
-    max-width: 64%;
-  }
-
-  header .preamble.with-intro .intro p,
-  section.detail {
-    p,
-    ul {
-      font-size: 1.4em;
-    }
-  }
-
-  section.detail {
-    p,
-    ul {
-      max-width: 55%;
-    }
-  }
-}
-
-section.more-work {
-  margin-bottom: 4em;
-
-  .pad {
-    padding: 6vmin 10vmin;
-  }
-
-  ul.work-list {
-    color: #b9b9b9;
-    margin: 1em 0;
-    font-family: 'CanelaDeck';
-    font-size: 1.5em;
-    line-height: 1.6em;
+  @media screen and (min-width: 1260px) {
+    margin: 5vw auto;
   }
 }
 </style>

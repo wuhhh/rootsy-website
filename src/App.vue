@@ -129,7 +129,14 @@ video.inset {
 @media screen and (min-width: 1280px) {
   img.inset,
   video.inset {
-    max-width: 70%;
+    max-width: 75%;
+  }
+}
+
+@media screen and (min-width: 1990px) {
+  img.inset,
+  video.inset {
+    max-width: 1438px;
   }
 }
 
@@ -190,26 +197,5 @@ div.section-title {
   background: url('/img/icon/eye-solid-pink.svg') no-repeat 0 45%;
   background-size: 36px 36px;
   padding-left: calc(36px);
-}
-
-@media screen and (min-width: 620px) {
-  header .preamble.with-intro,
-  section.detail p {
-    font-size: 1.1em;
-    line-height: 1.5em;
-  }
-}
-
-@media screen and (min-width: 720px) {
-  header .preamble.with-intro .intro p,
-  section.detail p {
-    font-size: 1.2em;
-    line-height: 1.6em;
-  }
-
-  section.detail p {
-    max-width: 80%;
-    margin: 3em auto;
-  }
 }
 </style>

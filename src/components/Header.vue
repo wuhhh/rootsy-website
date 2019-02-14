@@ -79,7 +79,7 @@ export default {
 
 header {
   @media screen and (min-width: 600px) {
-    padding: 4vmin 8vmin;
+    padding: 4vmin 8vmin 2vmin 8vmin;
   }
 
   width: 100%;
@@ -155,7 +155,6 @@ header {
   .with-intro {
     h1.main {
       transform: translateY(0);
-      margin-bottom: 0.5em;
     }
   }
 
