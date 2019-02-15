@@ -15,10 +15,6 @@ export default {
     var form = space.getForm()
     var peaks = 8
 
-    //let pink = Color.fromHex('#edcecf')
-    let blue = Color.fromHex('#d3f0f5')
-    //let blendgroup = Group.fromArray([pink, blue])
-
     // animation
     space.add(time => {
       // create points along a line
@@ -45,12 +41,7 @@ export default {
 
       // draw/fill the cardinal curve
       let curve = Curve.cardinal(pts, 50, (Math.sin(time / 2500) + 1) / 4)
-      /*
-      let colourstep = new Color(
-        blendgroup.interpolate((Math.sin(time / 5000) + 1) / 2)
-      )
-      */
-      form.fillOnly(blue).polygon(curve)
+      form.fillOnly('#d3f0f5').polygon(curve)
     })
 
     // start
