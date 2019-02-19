@@ -1,5 +1,7 @@
 # rootsy
 
+I've made my website open source, because why not? https://www.rootsy.co.uk
+
 ## Project setup
 ```
 npm install
