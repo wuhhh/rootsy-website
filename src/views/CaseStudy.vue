@@ -41,6 +41,9 @@
           <source :src="getCockpitUploadUrl + content.value.path" :type="content.value.mime">
         </video>
       </div>
+      <div class="chunk" v-if="caseStudy.tags">
+        <Tags :tags="caseStudy.tags"/>
+      </div>
     </section>
 
     <CaseStudyNav :current="caseStudy._id"/>
@@ -52,6 +55,7 @@ import Nav from '@/components/Nav.vue'
 import CaseStudyNav from '@/components/CaseStudyNav.vue'
 import Logo from '@/components/Logo.vue'
 import ImageSet from '@/components/ImageSet.vue'
+import Tags from '@/components/Tags.vue'
 import { mapGetters } from 'vuex'
 import store from '@/store'
 
@@ -60,7 +64,8 @@ export default {
     Nav,
     CaseStudyNav,
     Logo,
-    ImageSet
+    ImageSet,
+    Tags
   },
   props: {
     caseStudy: {
