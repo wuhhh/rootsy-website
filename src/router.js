@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import CaseStudy from './views/CaseStudy.vue'
+import NotFound from './views/404.vue'
 import store from './store'
 
 Vue.use(Router)
@@ -28,6 +29,11 @@ const router = new Router({
             next()
           })
       }
+    },
+    {
+      path: '*',
+      name: '404',
+      component: NotFound
     }
   ],
   scrollBehavior(to, from, savedPosition) {
