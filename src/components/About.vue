@@ -28,9 +28,6 @@ import Siney from '@/components/Siney.vue'
 import { mapState } from 'vuex'
 
 export default {
-  created() {
-    this.$store.dispatch('fetchAboutMe')
-  },
   computed: {
     ...mapState(['aboutMe']),
     profilePic() {

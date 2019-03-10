@@ -14,9 +14,6 @@ export default {
     AnchorViewCaseStudy,
     CaseStudyCard
   },
-  created() {
-    this.$store.dispatch('fetchCaseStudies')
-  },
   computed: {
     ...mapState(['caseStudies'])
   }

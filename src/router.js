@@ -14,7 +14,15 @@ const router = new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: Home,
+      beforeEnter(routeTo, routeFrom, next) {
+        const dispatches = [
+          store.dispatch('fetchCaseStudies'),
+          store.dispatch('fetchAboutMe')
+        ]
+
+        Promise.all(dispatches).then(() => next())
+      }
     },
     {
       path: '/case-study/:titleslug',
@@ -57,6 +65,7 @@ router.beforeEach((to, from, next) => {
 
 router.afterEach((to, from) => {
   store.dispatch('setLoading', false)
+  document.dispatchEvent(new Event('x-app-rendered'))
 })
 
 export default router

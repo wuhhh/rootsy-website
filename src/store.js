@@ -33,7 +33,7 @@ export default new Vuex.Store({
   },
   actions: {
     fetchCaseStudies({ commit }) {
-      ContentService.getCaseStudies()
+      return ContentService.getCaseStudies()
         .then(response => {
           commit('SET_CASE_STUDIES', response.data.entries)
         })
