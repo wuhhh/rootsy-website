@@ -21,6 +21,7 @@ const router = new Router({
           store.dispatch('fetchAboutMe')
         ]
 
+        // Wait for the data needed
         Promise.all(dispatches).then(() => next())
       }
     },
