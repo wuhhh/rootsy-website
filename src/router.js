@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import CaseStudy from './views/CaseStudy.vue'
 import NotFound from './views/404.vue'
 import store from './store'
+import VueAnalytics from 'vue-analytics'
 
 Vue.use(Router)
 
@@ -70,3 +71,20 @@ router.afterEach((to, from) => {
 })
 
 export default router
+
+Vue.use(VueAnalytics, {
+  id: 'UA-1957166-12',
+  debug: {
+    sendHitTask: process.env.NODE_ENV === 'production'
+  },
+  router,
+  autoTracking: {
+    pageviewTemplate(route) {
+      return {
+        page: route.path,
+        title: document.title,
+        location: window.location.href
+      }
+    }
+  }
+})
