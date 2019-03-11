@@ -84,6 +84,16 @@ export default {
         routeTo.params.caseStudy = casestudy
         next()
       })
+  },
+  mounted() {
+    this.addMetaData()
+  },
+  methods: {
+    addMetaData() {
+      if (document) {
+        document.title = 'Rootsy | Case Studies | ' + this.caseStudy.title
+      }
+    }
   }
 }
 </script>

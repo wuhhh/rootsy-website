@@ -24,6 +24,16 @@ export default {
     About,
     Clients,
     Footer
+  },
+  mounted() {
+    this.addMetaData()
+  },
+  methods: {
+    addMetaData() {
+      if (document) {
+        document.title = 'Rootsy | Web Design & Development by Huw Roberts'
+      }
+    }
   }
 }
 </script>
