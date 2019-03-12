@@ -18,7 +18,7 @@
         href="#"
       >Case Studies</a>
       <a @click.prevent="handleNav($event)" data-to-element="section.about" href="#">About</a>
-      <a @click.prevent="handleNav($event)" href="mailto:hello@rootsy.co.uk">hello@rootsy.co.uk</a>
+      <a href="mailto:hello@rootsy.co.uk">hello@rootsy.co.uk</a>
     </div>
   </nav>
 </template>
