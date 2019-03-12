@@ -1,13 +1,19 @@
 <template>
   <footer>
     <div class="pad">
-      <a href="mailto:hello@rootsy.co.uk">hello@rootsy.co.uk</a>
+      <EmailLink/>
     </div>
   </footer>
 </template>
 
 <script>
-export default {}
+import EmailLink from '@/components/EmailLink.vue'
+
+export default {
+  components: {
+    EmailLink
+  }
+}
 </script>
 
 <style lang="scss">
