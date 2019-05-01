@@ -36,8 +36,12 @@ section.featured-work {
     background-color: #e2e2e2;
   }
 
-  .featured-work--item:nth-of-type(3),
-  .featured-work--item:nth-of-type(4) {
+  .featured-work--item:nth-of-type(3) {
+    background-color: #d2d2d2;
+  }
+
+  .featured-work--item:nth-of-type(4),
+  .featured-work--item:nth-of-type(5) {
     color: #bfbfbf;
 
     .item--title {
@@ -49,11 +53,11 @@ section.featured-work {
     }
   }
 
-  .featured-work--item:nth-of-type(3) {
+  .featured-work--item:nth-of-type(4) {
     background-color: #3b3b3b;
   }
 
-  .featured-work--item:nth-of-type(4) {
+  .featured-work--item:nth-of-type(5) {
     background-color: #272727;
   }
 
