@@ -21,7 +21,8 @@ export default {
   },
   getCaseStudies() {
     return apiClient.post('/collections/get/casestudies', {
-      filter: { published: true }
+      filter: { published: true },
+      sort: { _o: 1 }
     })
   },
   getCaseStudy(titleslug) {
