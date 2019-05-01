@@ -6,6 +6,7 @@ module.exports = {
       registry: undefined,
       renderRoutes: [
         '/',
+        '/case-study/zen',
         '/case-study/e-international-relations',
         '/case-study/flip',
         '/case-study/serein',
@@ -16,4 +17,4 @@ module.exports = {
       onlyProduction: true
     }
   }
-};
+}
