@@ -31,7 +31,8 @@ export default {
   methods: {
     addMetaData() {
       if (document) {
-        document.title = 'Rootsy | Web Design & Development by Huw Roberts'
+        document.title =
+          'Rootsy | Freelance Web Designer & Developer | Cardiff, Bristol & Remote'
       }
     }
   }

@@ -98,7 +98,7 @@ section.about {
     transform: translateX(-5%);
   }
 
-  img.dog-emoji {
+  img.emoji {
     margin-left: 0.5em;
   }
 
