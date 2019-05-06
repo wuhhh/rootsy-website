@@ -1,5 +1,5 @@
 <template>
-  <div :class="{hello: popIt}" class="fit-height featured-work--item item">
+  <div :style="{ backgroundColor: caseStudy.bgcolor }" :class="[{hello: popIt}, {is_dark: caseStudy.is_dark}]" class="fit-height featured-work--item item">
     <div class="pad">
       <div class="layout">
         <div>
@@ -86,5 +86,18 @@ export default {
 }
 </script>
 
-<style>
+<style  lang="scss">
+@import '@/sass/_settings.scss';
+
+.item.is_dark {
+  color: #bfbfbf;
+
+  .item--title {
+    color: #f0f0f0;
+  }
+
+  a {
+    color: $c-pink;
+  }
+}
 </style>
