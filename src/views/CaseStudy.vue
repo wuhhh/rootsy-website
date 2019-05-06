@@ -40,6 +40,7 @@
         >
           <source :src="getCockpitUploadUrl + content.value.path" :type="content.value.mime">
         </video>
+        <Separator v-if="content.field.label === 'Separator' && content.field.type ==='text'" />
       </div>
       <div class="chunk" v-if="caseStudy.tags">
         <Tags :tags="caseStudy.tags"/>
@@ -56,6 +57,7 @@ import CaseStudyNav from '@/components/CaseStudyNav.vue'
 import Logo from '@/components/Logo.vue'
 import ImageSet from '@/components/ImageSet.vue'
 import Tags from '@/components/Tags.vue'
+import Separator from '@/components/Separator.vue'
 import { mapGetters } from 'vuex'
 import store from '@/store'
 
@@ -65,7 +67,8 @@ export default {
     CaseStudyNav,
     Logo,
     ImageSet,
-    Tags
+    Tags,
+    Separator
   },
   props: {
     caseStudy: {
@@ -108,8 +111,13 @@ export default {
     margin-top: 0;
   }
 
+  h2 {
+    font-weight: 600;
+  }
+
   p,
-  ul {
+  ul,
+  h2 {
     &:last-child {
       margin-bottom: 0;
     }
