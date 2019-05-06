@@ -4,7 +4,8 @@
 
 <script>
 var md = require('markdown-it')({
-  html: true
+  html: true,
+  breaks: true
 })
 
 export default {
