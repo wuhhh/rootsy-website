@@ -28,39 +28,6 @@ section.featured-work {
     overflow: hidden; /* Knock out drop shadow */
   }
 
-  .featured-work--item:nth-of-type(1) {
-    background-color: #f0f0f0;
-  }
-
-  .featured-work--item:nth-of-type(2) {
-    background-color: #e2e2e2;
-  }
-
-  .featured-work--item:nth-of-type(3) {
-    background-color: #d2d2d2;
-  }
-
-  .featured-work--item:nth-of-type(4),
-  .featured-work--item:nth-of-type(5) {
-    color: #bfbfbf;
-
-    .item--title {
-      color: #f0f0f0;
-    }
-
-    a {
-      color: $c-pink;
-    }
-  }
-
-  .featured-work--item:nth-of-type(4) {
-    background-color: #3b3b3b;
-  }
-
-  .featured-work--item:nth-of-type(5) {
-    background-color: #272727;
-  }
-
   .item .layout {
     display: flex;
     flex-direction: column;
