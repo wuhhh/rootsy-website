@@ -74,7 +74,6 @@ section.about {
   }
 
   .about--description {
-    font-size: 0.85em;
     padding: 0 1em;
     width: 100%;
     order: 3;
