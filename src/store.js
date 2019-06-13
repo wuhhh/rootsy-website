@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import ContentService from '@/services/CockpitService.js'
+import ContentService from '@/services/WPService.js'
 
 Vue.use(Vuex)
 
@@ -10,9 +10,7 @@ export default new Vuex.Store({
     caseStudy: {},
     caseStudySlugs: [],
     aboutMe: '',
-    loading: true,
-    cockpitApiUrl: 'https://cockpit.rootsy.co.uk/cockpit/api',
-    cockpitUploadUrl: 'https://cockpit.rootsy.co.uk/cockpit/storage/uploads'
+    loading: true
   },
   mutations: {
     SET_CASE_STUDIES(state, caseStudies) {
@@ -35,24 +33,24 @@ export default new Vuex.Store({
     fetchCaseStudies({ commit }) {
       return ContentService.getCaseStudies()
         .then(response => {
-          commit('SET_CASE_STUDIES', response.data.entries)
+          commit('SET_CASE_STUDIES', response.data)
         })
         .catch(error => {
           console.log('There was an error: ', error.response)
         })
     },
-    fetchCaseStudy({ commit, getters }, titleslug) {
+    fetchCaseStudy({ commit, getters }, slug) {
       // Check if it exists in caseStudies
-      var casestudy = getters.getCaseStudyByID(titleslug)
+      var casestudy = getters.getCaseStudyBySlug(slug)
 
       if (casestudy) {
         commit('SET_CASE_STUDY', casestudy)
         return casestudy
       } else {
-        return ContentService.getCaseStudy(titleslug)
+        return ContentService.getCaseStudy(slug)
           .then(response => {
-            commit('SET_CASE_STUDY', response.data.entries[0])
-            return response.data.entries[0]
+            commit('SET_CASE_STUDY', response.data[0])
+            return response.data[0]
           })
           .catch(error => {
             console.log('There was an error: ', error.response)
@@ -69,10 +67,10 @@ export default new Vuex.Store({
         })
     },
     fetchAboutMe({ commit }) {
-      return ContentService.getAboutMe()
+      return ContentService.getPageBySlug('about')
         .then(response => {
-          commit('SET_ABOUT_ME', response.data)
-          return response.data
+          commit('SET_ABOUT_ME', response.data[0])
+          return response.data[0]
         })
         .catch(error => {
           console.log('There was an error: ', error.response)
@@ -83,11 +81,9 @@ export default new Vuex.Store({
     }
   },
   getters: {
-    getCaseStudyByID: state => titleslug => {
+    getCaseStudyBySlug: state => slug => {
       if (state.caseStudies.length > 0) {
-        return state.caseStudies.find(
-          casestudy => casestudy.title_slug === titleslug
-        )
+        return state.caseStudies.find(casestudy => casestudy.slug === slug)
       } else {
         return null
       }

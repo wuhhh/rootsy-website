@@ -9,45 +9,45 @@
         <div class="breadcrumb">
           <router-link :to="{ name: 'home' }">Index</router-link>&nbsp;/ Case Studies
         </div>
-        <h1 class="main">{{ caseStudy.title }}</h1>
+        <h1 class="main">{{ caseStudy.title.rendered }}</h1>
       </div>
     </header>
 
     <section class="detail">
       <div class="chunk">
-        <BaseMarkdown v-if="caseStudy.intro" :content="caseStudy.intro"></BaseMarkdown>
+        <div v-html="caseStudy.acf.intro" />
       </div>
       <div
         class="chunk"
-        v-for="(content, index) in caseStudy.content"
-        :key="caseStudy._id + '_' + index"
+        v-for="(content, index) in caseStudy.acf.content"
+        :key="caseStudy.id + '_' + index"
       >
-        <BaseMarkdown v-if="content.field.type == 'markdown'" :content="content.value"></BaseMarkdown>
-        <ImageSet
-          v-if="content.field.type == 'asset' && content.value.image"
-          :path="content.value._id"
-          :alt="content.value.title"
-          :width="content.value.width"
-          :height="content.value.height"
+        <div v-if="content.acf_fc_layout == 'text_block'" v-html="content.text" />
+        <WPImageSet
+          v-if="content.acf_fc_layout == 'image_block'"
+          :sizes="content.image.sizes"
+          :alt="content.image.alt"
+          :width="content.image.width"
+          :height="content.image.height"
           classes="inset shadowed"
         />
         <video
-          v-if="content.field.type == 'asset' && content.value.video"
+          v-if="content.acf_fc_layout == 'video_block'"
           class="inset shadowed"
           muted
           autoplay
           loop
         >
-          <source :src="getCockpitUploadUrl + content.value.path" :type="content.value.mime">
+          <source :src="content.video.url" :type="content.video.mime_type">
         </video>
-        <Separator v-if="content.field.label === 'Separator' && content.field.type ==='text'" />
+        <Separator v-if="content.acf_fc_layout === 'separator'" />
       </div>
-      <div class="chunk" v-if="caseStudy.tags">
-        <Tags :tags="caseStudy.tags"/>
+      <div class="chunk" v-if="caseStudy._embedded['wp:term'][0]">
+        <Tags :tags="caseStudy._embedded['wp:term'][0]"/>
       </div>
     </section>
 
-    <CaseStudyNav :current="caseStudy._id"/>
+    <CaseStudyNav :next="caseStudy.next" :previous="caseStudy.previous" />
   </div>
 </template>
 
@@ -55,7 +55,7 @@
 import Nav from '@/components/Nav.vue'
 import CaseStudyNav from '@/components/CaseStudyNav.vue'
 import Logo from '@/components/Logo.vue'
-import ImageSet from '@/components/ImageSet.vue'
+import WPImageSet from '@/components/WPImageSet.vue'
 import Tags from '@/components/Tags.vue'
 import Separator from '@/components/Separator.vue'
 import { mapGetters } from 'vuex'
@@ -66,7 +66,7 @@ export default {
     Nav,
     CaseStudyNav,
     Logo,
-    ImageSet,
+    WPImageSet,
     Tags,
     Separator
   },

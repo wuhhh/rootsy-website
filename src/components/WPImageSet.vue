@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import ContentService from '@/services/WPService.js'
 import lozad from 'lozad'
 
 export default {
@@ -21,9 +20,8 @@ export default {
       type: Number,
       default: null
     },
-    path: {
-      type: String,
-      default: '',
+    sizes: {
+      type: Object,
       required: true
     },
     alt: {
@@ -41,44 +39,21 @@ export default {
   },
   data() {
     return {
-      baseURL: ContentService.getBaseURL(),
-      accessToken: ContentService.getAccessToken(),
       loading: true
     }
   },
   computed: {
     defaultIMG() {
-      return (
-        this.baseURL +
-        '/cockpit/image?token=' +
-        this.accessToken +
-        '&src=' +
-        this.path +
-        '&m=fitToWidth&w=600&q=85&o=1'
-      )
+      return this.sizes['rootsy-small']
     },
     srcset() {
       let sets = []
 
       // 1000w
-      sets.push(
-        this.baseURL +
-          '/cockpit/image?token=' +
-          this.accessToken +
-          '&src=' +
-          this.path +
-          '&m=fitToWidth&w=1000&q=85&o=1 1000w'
-      )
+      sets.push(this.sizes['rootsy-medium'] + ' 1000w')
 
       // 2000w
-      sets.push(
-        this.baseURL +
-          '/cockpit/image?token=' +
-          this.accessToken +
-          '&src=' +
-          this.path +
-          '&m=resize&w=2000&q=85&o=1 2000w'
-      )
+      sets.push(this.sizes['rootsy-large'] + ' 2000w')
 
       return sets.join(',')
     },

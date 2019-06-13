@@ -12,8 +12,12 @@ export default {
   },
   computed: {
     tagList() {
+      let tags = this.tags.map(tag => {
+        return tag.name
+      })
+
       let sep = '<span class="separator"> / </span>'
-      return this.tags.join(sep)
+      return tags.join(sep)
     }
   }
 }

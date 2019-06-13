@@ -1,24 +1,24 @@
 <template>
-  <div :style="{ backgroundColor: caseStudy.bgcolor }" :class="[{hello: popIt}, {is_dark: caseStudy.is_dark}]" class="fit-height featured-work--item item">
+  <div :style="{ backgroundColor: caseStudy.acf.background_colour }" :class="[{hello: popIt}, {is_dark: caseStudy.acf.dark_mode}]" class="fit-height featured-work--item item">
     <div class="pad">
       <div class="layout">
         <div>
           <div class="item--words">
-            <div class="item--title">{{ caseStudy.title }}</div>
+            <div class="item--title">{{ caseStudy.title.rendered }}</div>
             <div class="item--description">
-              <BaseMarkdown :content="caseStudy.excerpt"></BaseMarkdown>
+              <div v-html="caseStudy.acf.excerpt" />
               <p>
-                <AnchorViewCaseStudy :isDark="caseStudy.is_dark" :slug="caseStudy.title_slug"/>
+                <AnchorViewCaseStudy :isDark="caseStudy.acf.dark_mode" :slug="caseStudy.slug"/>
               </p>
             </div>
           </div>
         </div>
         <div class="item--image">
-          <ImageSet
-            :width="caseStudy.image.width"
-            :height="caseStudy.image.height"
-            :path="'https://cockpit.rootsy.co.uk/cockpit/storage/uploads' + caseStudy.image.path"
-            :alt="caseStudy.title"
+          <WPImageSet
+            :width="caseStudy.acf.primary_image.width"
+            :height="caseStudy.acf.primary_image.height"
+            :sizes="caseStudy.acf.primary_image.sizes"
+            :alt="caseStudy.acf.primary_image.alt"
             :loadOnMount="true"
           />
         </div>
@@ -29,7 +29,7 @@
 
 <script>
 import AnchorViewCaseStudy from '@/components/AnchorViewCaseStudy.vue'
-import ImageSet from '@/components/ImageSet.vue'
+import WPImageSet from '@/components/WPImageSet.vue'
 
 export default {
   data() {
@@ -78,7 +78,7 @@ export default {
   },
   components: {
     AnchorViewCaseStudy,
-    ImageSet
+    WPImageSet
   },
   props: {
     caseStudy: Object

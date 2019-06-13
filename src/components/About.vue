@@ -1,45 +1,47 @@
 <template>
   <section class="fit-height about">
-    <Siney v-if="aboutMe"/>
-    <div class="pad">
-      <div class="section-title">About Rootsy</div>
-      <div class="layout">
-        <img v-if="aboutMe" class="profile" :src="profilePic" alt="Huw Roberts">
-        <div class="heading">
-          <SpanClipReveal v-if="aboutMe.title">{{ aboutMe.title }}</SpanClipReveal>
-        </div>
-        <div class="about--description">
-          <BaseMarkdown v-if="aboutMe" :content="aboutMe.body"/>
-          <p class="availability">
-            <SpanClipReveal v-if="aboutMe.next_available">
-              <span class="availability--avail">Next Availability:</span>
-              {{ aboutMe.next_available }}
-            </SpanClipReveal>
-          </p>
+    <template v-if="aboutMe">
+      <Siney />
+      <div class="pad">
+        <div class="section-title">About Rootsy</div>
+        <div class="layout">
+          <WPImageSet
+            classes="profile"
+            :sizes="aboutMe.acf.primary_image.sizes"
+            :alt="aboutMe.acf.primary_image.alt"
+          />
+          <div class="heading">
+            <SpanClipReveal>{{ aboutMe.acf.heading }}</SpanClipReveal>
+          </div>
+          <div class="about--description">
+            <div v-html="aboutMe.content.rendered" />
+            <p class="availability">
+              <SpanClipReveal v-if="aboutMe.acf.next_available">
+                <span class="availability--avail">Next Availability:</span>
+                {{ aboutMe.acf.next_available }}
+              </SpanClipReveal>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+    </template>
   </section>
 </template>
 
 <script>
 import SpanClipReveal from '@/components/SpanClipReveal.vue'
 import Siney from '@/components/Siney.vue'
+import WPImageSet from '@/components/WPImageSet.vue'
 import { mapState } from 'vuex'
 
 export default {
   computed: {
-    ...mapState(['aboutMe']),
-    profilePic() {
-      return (
-        'https://cockpit.rootsy.co.uk/cockpit/storage/uploads' +
-        this.aboutMe.profile_pic.path
-      )
-    }
+    ...mapState(['aboutMe'])
   },
   components: {
     SpanClipReveal,
-    Siney
+    Siney,
+    WPImageSet
   }
 }
 </script>
