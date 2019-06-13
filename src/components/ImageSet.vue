@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import ContentService from '@/services/ContentService.js'
+import ContentService from '@/services/CockpitService.js'
 import lozad from 'lozad'
 
 export default {

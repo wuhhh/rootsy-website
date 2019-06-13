@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import ContentService from '@/services/ContentService.js'
+import ContentService from '@/services/CockpitService.js'
 
 Vue.use(Vuex)
 
