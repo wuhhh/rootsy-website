@@ -8,8 +8,8 @@ export default new Vuex.Store({
   state: {
     caseStudies: [],
     caseStudy: {},
-    caseStudySlugs: [],
     aboutMe: '',
+    clients: '',
     loading: true
   },
   mutations: {
@@ -19,11 +19,11 @@ export default new Vuex.Store({
     SET_CASE_STUDY(state, caseStudy) {
       state.caseStudy = caseStudy
     },
-    SET_CASE_STUDY_SLUGS(state, caseStudySlugs) {
-      state.caseStudySlugs = caseStudySlugs
-    },
     SET_ABOUT_ME(state, aboutMe) {
       state.aboutMe = aboutMe
+    },
+    SET_CLIENTS(state, clients) {
+      state.clients = clients
     },
     SET_LOADING(state, loading) {
       state.loading = loading
@@ -57,19 +57,20 @@ export default new Vuex.Store({
           })
       }
     },
-    fetchCaseStudySlugs({ commit }) {
-      ContentService.getCaseStudySlugs()
+    fetchAboutMe({ commit }) {
+      return ContentService.getPageBySlug('about')
         .then(response => {
-          commit('SET_CASE_STUDY_SLUGS', response.data)
+          commit('SET_ABOUT_ME', response.data[0])
+          return response.data[0]
         })
         .catch(error => {
           console.log('There was an error: ', error.response)
         })
     },
-    fetchAboutMe({ commit }) {
-      return ContentService.getPageBySlug('about')
+    fetchClients({ commit }) {
+      return ContentService.getPageBySlug('clients')
         .then(response => {
-          commit('SET_ABOUT_ME', response.data[0])
+          commit('SET_CLIENTS', response.data[0])
           return response.data[0]
         })
         .catch(error => {

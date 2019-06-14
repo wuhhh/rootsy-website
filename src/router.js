@@ -19,7 +19,8 @@ const router = new Router({
       beforeEnter(routeTo, routeFrom, next) {
         const dispatches = [
           store.dispatch('fetchCaseStudies'),
-          store.dispatch('fetchAboutMe')
+          store.dispatch('fetchAboutMe'),
+          store.dispatch('fetchClients')
         ]
 
         // Wait for the data needed

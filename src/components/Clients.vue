@@ -6,12 +6,15 @@
         <div class="layout">
           <div class="heading">Selected work &nbsp;2008&nbsp;&mdash;&nbsp;2019</div>
           <div id="client-list" class="cols client-list">
-            <div class="client-list--item" v-for="(client, key) in clients" :key="client.id">
+            <div
+              class="client-list--item"
+              v-for="(client, key) in clients.acf.selected_work"
+              :key="key"
+            >
               <a
                 v-if="!client.defunct"
                 @click.prevent="switchClientTo(key)"
                 :class="{'cli--defunct': client.defunct}"
-                :data-image-src="client.image"
                 href="#"
               >
                 <span class="cli--year">{{ client.year }}</span>&nbsp;
@@ -29,13 +32,16 @@
             <img src="/img/icon/browser-chrome-icons.svg" alt="Browser Window Mockup Icons">
           </div>
           <div class="browser-window--viewport">
-            <template v-for="(client, key) in clients">
-              <img
-                v-show="key == clientIndex"
-                :src="client.image"
-                :alt="client.title"
-                :key="client.id"
-              >
+            <template v-for="(client, key) in clients.acf.selected_work">
+              <template v-if="!client.defunct">
+                <WPImageSet
+                  :key="key"
+                  v-show="key == clientIndex"
+                  :sizes="client.image.sizes"
+                  :alt="client.image.alt"
+                  :loadOnMount="true"
+                />
+              </template>
             </template>
           </div>
         </div>
@@ -45,108 +51,34 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+import WPImageSet from '@/components/WPImageSet.vue'
+
 export default {
+  name: 'Clients',
+  components: {
+    WPImageSet
+  },
   data() {
     return {
       rotateDelay: 500,
       playing: true,
       counter: 0,
-      clientIndex: 0,
-      clients: [
-        {
-          id: 1,
-          title: 'Cardiff University',
-          image: '/img/clients/arpp.jpg',
-          year: '2014'
-        },
-        {
-          id: 2,
-          title: 'WorldPay',
-          image: '/img/clients/smallbusinessheroes.jpg',
-          year: '2011'
-        },
-        {
-          id: 3,
-          title: 'Super Furry Animals',
-          image: '/img/clients/sfa.jpg',
-          year: '2008'
-        },
-        {
-          id: 4,
-          title: 'EMI',
-          year: '2008',
-          defunct: true
-        },
-        {
-          id: 5,
-          title: 'HEMYCA',
-          image: '/img/clients/hemyca.jpg',
-          year: '2012'
-        },
-        {
-          id: 6,
-          title: 'Bait',
-          image: '/img/clients/bait.jpg',
-          year: '2009'
-        },
-        {
-          id: 7,
-          title: 'Chill Or Thrill',
-          image: '/img/clients/chillorthrill.jpg',
-          year: '2010'
-        },
-        {
-          id: 8,
-          title: 'Eco Bohemia',
-          image: '/img/clients/ecobohemia.jpg',
-          year: '2011'
-        },
-        {
-          id: 9,
-          title: 'Eco Finland',
-          image: '/img/clients/ecofinland.jpg',
-          year: '2013'
-        },
-        {
-          id: 10,
-          title: 'Voices From Care',
-          image: '/img/clients/voicesfromcare.jpg',
-          year: '2013'
-        },
-        {
-          id: 11,
-          title: 'Minna Hepburn',
-          image: '/img/clients/minna.jpg',
-          year: '2014'
-        },
-        {
-          id: 12,
-          title: 'Silk Street Jazz',
-          image: '/img/clients/ssj.jpg',
-          year: '2015'
-        }
-      ]
+      clientIndex: 0
     }
   },
   computed: {
     // Return client at current index
     clientAtIndex() {
-      return this.clients[this.clientIndex]
+      return this.clients.acf.selected_work[this.clientIndex]
     },
     // Filter
     clientsNotDefunct() {
-      return this.clients.filter(this.notDefunct)
-    }
+      return this.clients.acf.selected_work.filter(this.notDefunct)
+    },
+    ...mapState(['clients'])
   },
   mounted() {
-    // Preload images and store them in the client data array
-    for (let i = 0; i < this.clientsNotDefunct.length; i++) {
-      let thisImage = document.createElement('img')
-      thisImage.src = this.clientsNotDefunct[i].image
-      this.clients[i].imageElement = thisImage
-    }
-
-    // Begin rotation
     this.rotate()
   },
   methods: {
@@ -160,11 +92,11 @@ export default {
 
       this.counter += 1
 
-      if (this.counter >= this.clients.length) {
+      if (this.counter >= this.clients.acf.selected_work.length) {
         this.counter = 0
       }
 
-      while (this.clients[this.counter].defunct) {
+      while (this.clients.acf.selected_work[this.counter].defunct) {
         this.counter += 1
       }
 
