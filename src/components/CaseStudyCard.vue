@@ -1,12 +1,16 @@
 <template>
-  <div :style="{ backgroundColor: caseStudy.acf.background_colour }" :class="[{hello: popIt}, {is_dark: caseStudy.acf.dark_mode}]" class="fit-height featured-work--item item">
+  <div
+    :style="{ backgroundColor: caseStudy.acf.background_colour }"
+    :class="[{hello: popIt}, {is_dark: caseStudy.acf.dark_mode}]"
+    class="fit-height featured-work--item item"
+  >
     <div class="pad">
       <div class="layout">
         <div>
           <div class="item--words">
             <div class="item--title">{{ caseStudy.title.rendered }}</div>
             <div class="item--description">
-              <div v-html="caseStudy.acf.excerpt" />
+              <div v-html="caseStudy.acf.excerpt"/>
               <p>
                 <AnchorViewCaseStudy :isDark="caseStudy.acf.dark_mode" :slug="caseStudy.slug"/>
               </p>
@@ -19,7 +23,6 @@
             :height="caseStudy.acf.primary_image.height"
             :sizes="caseStudy.acf.primary_image.sizes"
             :alt="caseStudy.acf.primary_image.alt"
-            :loadOnMount="true"
           />
         </div>
       </div>
