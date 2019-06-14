@@ -34,12 +34,11 @@
           <div class="browser-window--viewport">
             <template v-for="(client, key) in clients.acf.selected_work">
               <template v-if="!client.defunct">
-                <WPImageSet
-                  :key="key"
+                <img
                   v-show="key == clientIndex"
-                  :sizes="client.image.sizes"
-                  :alt="client.image.alt"
-                />
+                  :key="key"
+                  :src="client.image.sizes['rootsy-large']"
+                >
               </template>
             </template>
           </div>
@@ -63,7 +62,8 @@ export default {
       rotateDelay: 500,
       playing: true,
       counter: 0,
-      clientIndex: 0
+      clientIndex: 0,
+      imagesPreloaded: 0
     }
   },
   computed: {
@@ -73,12 +73,29 @@ export default {
     },
     // Filter
     clientsNotDefunct() {
-      return this.clients.acf.selected_work.filter(this.notDefunct)
+      return this.clients.acf.selected_work.filter(work => {
+        return !work.defunct
+      })
     },
     ...mapState(['clients'])
   },
   mounted() {
-    this.rotate()
+    // Preload images, rotate when done
+    const preload = async () => {
+      this.clientsNotDefunct.forEach(work => {
+        let img = new Image()
+        img.onload = function() {
+          this.imagesPreloaded++
+        }
+        img.src = work.image.sizes['rootsy-large']
+      })
+
+      return this.clients.acf.selected_work.length == this.imagesPreloaded
+    }
+
+    preload().then(() => {
+      this.rotate()
+    })
   },
   methods: {
     // Return clients that aren't defunct
