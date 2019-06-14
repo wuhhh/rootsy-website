@@ -47,13 +47,13 @@
       </div>
     </section>
 
-    <CaseStudyNav :next="caseStudy.next" :previous="caseStudy.previous" />
+    <CaseStudyNav2 :next="caseStudy.next" :previous="caseStudy.previous" />
   </div>
 </template>
 
 <script>
 import Nav from '@/components/Nav.vue'
-import CaseStudyNav from '@/components/CaseStudyNav.vue'
+import CaseStudyNav2 from '@/components/CaseStudyNav.vue'
 import Logo from '@/components/Logo.vue'
 import WPImageSet from '@/components/WPImageSet.vue'
 import Tags from '@/components/Tags.vue'
@@ -64,7 +64,7 @@ import store from '@/store'
 export default {
   components: {
     Nav,
-    CaseStudyNav,
+    CaseStudyNav2,
     Logo,
     WPImageSet,
     Tags,
