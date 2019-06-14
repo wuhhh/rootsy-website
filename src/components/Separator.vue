@@ -1,6 +1,6 @@
 <template>
   <div class="separator">
-     <img width="124" :src="require('@/assets/separator.svg')" />
+    <img width="124" :src="require('@/assets/separator.svg')">
   </div>
 </template>
 
