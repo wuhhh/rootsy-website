@@ -2,10 +2,6 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import BaseMarkdown from '@/components/BaseMarkdown.vue'
-
-// Register lobal components
-Vue.component('BaseMarkdown', BaseMarkdown)
 
 // Don't show production tips
 Vue.config.productionTip = false
