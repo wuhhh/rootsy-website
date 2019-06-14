@@ -29,16 +29,19 @@
         </div>
         <div class="browser-window">
           <div class="browser-window--chrome">
-            <img src="/img/icon/browser-chrome-icons.svg" alt="Browser Window Mockup Icons">
+            <img src="/img/icon/browser-chrome-icons.svg">
           </div>
           <div class="browser-window--viewport">
             <template v-for="(client, key) in clients.acf.selected_work">
               <template v-if="!client.defunct">
-                <img
+                <WPImageSet
                   v-show="key == clientIndex"
                   :key="key"
-                  :src="client.image.sizes['rootsy-large']"
-                >
+                  :width="client.image.width"
+                  :height="client.image.height"
+                  :sizes="client.image.sizes"
+                  :alt="client.image.alt"
+                />
               </template>
             </template>
           </div>
@@ -51,7 +54,6 @@
 <script>
 import { mapState } from 'vuex'
 import WPImageSet from '@/components/WPImageSet.vue'
-import dumbImagePreloader from 'dumb-image-preloader'
 
 export default {
   name: 'Clients',
@@ -81,15 +83,7 @@ export default {
     ...mapState(['clients'])
   },
   mounted() {
-    // Preload images, rotate when done
-    let images = this.clientsNotDefunct.map(work => {
-      return work.image.sizes['rootsy-large']
-    })
-
-    //chaining the returned promise
-    dumbImagePreloader(images).then(() => {
-      this.rotate()
-    })
+    this.rotate()
   },
   methods: {
     // Return clients that aren't defunct
@@ -102,16 +96,20 @@ export default {
 
       this.counter += 1
 
+      // Loop back to beginning
       if (this.counter >= this.clients.acf.selected_work.length) {
         this.counter = 0
       }
 
+      // Skip defunct
       while (this.clients.acf.selected_work[this.counter].defunct) {
         this.counter += 1
       }
 
+      // Update index
       this.clientIndex = this.counter
 
+      // Delay timer
       setTimeout(() => {
         this.rotate()
       }, this.rotateDelay)
