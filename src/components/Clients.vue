@@ -51,6 +51,7 @@
 <script>
 import { mapState } from 'vuex'
 import WPImageSet from '@/components/WPImageSet.vue'
+import dumbImagePreloader from 'dumb-image-preloader'
 
 export default {
   name: 'Clients',
@@ -81,19 +82,12 @@ export default {
   },
   mounted() {
     // Preload images, rotate when done
-    const preload = async () => {
-      this.clientsNotDefunct.forEach(work => {
-        let img = new Image()
-        img.onload = function() {
-          this.imagesPreloaded++
-        }
-        img.src = work.image.sizes['rootsy-large']
-      })
+    let images = this.clientsNotDefunct.map(work => {
+      return work.image.sizes['rootsy-large']
+    })
 
-      return this.clients.acf.selected_work.length == this.imagesPreloaded
-    }
-
-    preload().then(() => {
+    //chaining the returned promise
+    dumbImagePreloader(images).then(() => {
       this.rotate()
     })
   },
