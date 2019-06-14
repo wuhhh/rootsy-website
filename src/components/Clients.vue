@@ -34,12 +34,11 @@
           <div class="browser-window--viewport">
             <template v-for="(client, key) in clients.acf.selected_work">
               <template v-if="!client.defunct">
-                <WPImageSet
-                  :key="key"
+                <img
                   v-show="key == clientIndex"
-                  :sizes="client.image.sizes"
-                  :alt="client.image.alt"
-                />
+                  :key="key"
+                  :src="client.image.sizes['rootsy-large']"
+                >
               </template>
             </template>
           </div>
@@ -52,6 +51,7 @@
 <script>
 import { mapState } from 'vuex'
 import WPImageSet from '@/components/WPImageSet.vue'
+import dumbImagePreloader from 'dumb-image-preloader'
 
 export default {
   name: 'Clients',
@@ -63,7 +63,8 @@ export default {
       rotateDelay: 500,
       playing: true,
       counter: 0,
-      clientIndex: 0
+      clientIndex: 0,
+      imagesPreloaded: 0
     }
   },
   computed: {
@@ -73,12 +74,22 @@ export default {
     },
     // Filter
     clientsNotDefunct() {
-      return this.clients.acf.selected_work.filter(this.notDefunct)
+      return this.clients.acf.selected_work.filter(work => {
+        return !work.defunct
+      })
     },
     ...mapState(['clients'])
   },
   mounted() {
-    this.rotate()
+    // Preload images, rotate when done
+    let images = this.clientsNotDefunct.map(work => {
+      return work.image.sizes['rootsy-large']
+    })
+
+    //chaining the returned promise
+    dumbImagePreloader(images).then(() => {
+      this.rotate()
+    })
   },
   methods: {
     // Return clients that aren't defunct
