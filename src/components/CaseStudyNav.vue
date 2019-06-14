@@ -1,13 +1,17 @@
 <template>
-  <nav class="work-prev-next">
-    <div class="layout">
-      <router-link class="work-prev-next--prev"
+  <nav class="work-nav">
+    <div class="work-nav--prev">
+      <router-link
+        v-if="previous"
         :to="{ name: 'case-study-show', params: { titleslug: previous.slug }}"
         rel="prev"
       >
         <span>Prev</span>
       </router-link>
-      <router-link class="work-prev-next--next"
+    </div>
+    <div class="work-nav--next">
+      <router-link
+        v-if="next"
         :to="{ name: 'case-study-show', params: { titleslug: next.slug }}"
         rel="next"
       >
@@ -36,28 +40,19 @@ export default {
 <style lang="scss">
 @import '@/sass/_settings.scss';
 
-nav.work-prev-next {
+nav.work-nav {
   margin-top: 8em;
+  display: flex;
 
-  .layout {
-    display: flex;
-
-    & > a {
-      width: 50%;
-      text-decoration: none;
-    }
-  }
-
-  .work-prev-next--prev,
-  .work-prev-next--next {
+  .work-nav--prev,
+  .work-nav--next {
     padding: 4em 3em;
+    flex-basis: 50%;
 
     span {
       display: inline-block;
       font-family: 'CanelaDeck';
-      /*font-size: 4em;*/
       line-height: normal;
-      /*width: 50%;*/
       font-size: 2.5em;
       width: 100%;
       border-bottom: 2px solid;
@@ -88,10 +83,8 @@ nav.work-prev-next {
     }
   }
 
-  .work-prev-next--prev {
+  .work-nav--prev {
     background-color: lighten($c-pink, 10%);
-    display: flex;
-    justify-content: flex-end;
     text-align: right;
 
     span {
@@ -100,7 +93,7 @@ nav.work-prev-next {
     }
   }
 
-  .work-prev-next--next {
+  .work-nav--next {
     background-color: lighten($c-blue, 5%);
     text-align: left;
 

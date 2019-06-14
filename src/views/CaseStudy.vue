@@ -15,14 +15,14 @@
 
     <section class="detail">
       <div class="chunk">
-        <div v-html="caseStudy.acf.intro" />
+        <div v-html="caseStudy.acf.intro"/>
       </div>
       <div
         class="chunk"
         v-for="(content, index) in caseStudy.acf.content"
         :key="caseStudy.id + '_' + index"
       >
-        <div v-if="content.acf_fc_layout == 'text_block'" v-html="content.text" />
+        <div v-if="content.acf_fc_layout == 'text_block'" v-html="content.text"/>
         <WPImageSet
           v-if="content.acf_fc_layout == 'image_block'"
           :sizes="content.image.sizes"
@@ -40,20 +40,20 @@
         >
           <source :src="content.video.url" :type="content.video.mime_type">
         </video>
-        <Separator v-if="content.acf_fc_layout === 'separator'" />
+        <Separator v-if="content.acf_fc_layout === 'separator'"/>
       </div>
       <div class="chunk" v-if="caseStudy._embedded['wp:term'][0]">
         <Tags :tags="caseStudy._embedded['wp:term'][0]"/>
       </div>
     </section>
 
-    <CaseStudyNav2 :next="caseStudy.next" :previous="caseStudy.previous" />
+    <CaseStudyNav :next="caseStudy.next" :previous="caseStudy.previous"/>
   </div>
 </template>
 
 <script>
 import Nav from '@/components/Nav.vue'
-import CaseStudyNav2 from '@/components/CaseStudyNav.vue'
+import CaseStudyNav from '@/components/CaseStudyNav.vue'
 import Logo from '@/components/Logo.vue'
 import WPImageSet from '@/components/WPImageSet.vue'
 import Tags from '@/components/Tags.vue'
@@ -64,7 +64,7 @@ import store from '@/store'
 export default {
   components: {
     Nav,
-    CaseStudyNav2,
+    CaseStudyNav,
     Logo,
     WPImageSet,
     Tags,
