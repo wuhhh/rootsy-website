@@ -66,7 +66,7 @@ export default {}
   clip-path: inset(100% 0 0 0);
   transition: clip-path 500ms ease-in-out;
   pointer-events: none;
-  z-index: 2;
+  z-index: 3;
 }
 
 #app.loading .rootsy-loader {

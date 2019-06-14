@@ -41,6 +41,7 @@
                   :height="client.image.height"
                   :sizes="client.image.sizes"
                   :alt="client.image.alt"
+                  :loadOnMount="true"
                 />
               </template>
             </template>

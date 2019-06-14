@@ -5,10 +5,7 @@
         <video id="kes" src="/video/kes2-compressed.mp4" type="video/mp4" autoplay loop muted/>
       </transition>
     </template>
-    <div class="layout">
-      <Logo/>
-      <Nav/>
-    </div>
+    <MainMenu/>
     <transition appear name="fade-in">
       <h1 class="main">Web Design &amp; Development</h1>
     </transition>
@@ -26,8 +23,7 @@
 </template>
 
 <script>
-import Nav from '@/components/Nav.vue'
-import Logo from '@/components/Logo.vue'
+import MainMenu from '@/components/MainMenu.vue'
 
 export default {
   data() {
@@ -36,8 +32,7 @@ export default {
     }
   },
   components: {
-    Nav,
-    Logo
+    MainMenu
   },
   mounted() {
     const kes = document.createElement('video')
@@ -97,15 +92,6 @@ header {
     width: 65%;
     transform: translate(-50%, 60%);
     max-width: 310px;
-  }
-
-  .layout {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-sizing: border-box;
-    position: relative;
   }
 
   .logotype {
