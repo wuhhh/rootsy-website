@@ -29,7 +29,7 @@
         </div>
         <div class="browser-window">
           <div class="browser-window--chrome">
-            <img src="/img/icon/browser-chrome-icons.svg">
+            <img src="/img/icon/browser-chrome-icons.svg" alt="Browser Icons">
           </div>
           <div class="browser-window--viewport">
             <template v-for="(client, key) in clients.acf.selected_work">
