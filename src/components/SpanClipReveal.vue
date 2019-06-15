@@ -25,9 +25,13 @@ export default {
 
       this.clipReveal()
 
-      window.addEventListener('scroll', () => {
-        this.clipReveal()
-      })
+      window.addEventListener(
+        'scroll',
+        () => {
+          this.clipReveal()
+        },
+        { passive: true }
+      )
     }, 500)
   },
   methods: {

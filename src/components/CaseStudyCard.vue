@@ -75,9 +75,13 @@ export default {
 
     this.cardPop()
 
-    window.addEventListener('scroll', () => {
-      this.cardPop()
-    })
+    window.addEventListener(
+      'scroll',
+      () => {
+        this.cardPop()
+      },
+      { passive: true }
+    )
   },
   components: {
     AnchorViewCaseStudy,

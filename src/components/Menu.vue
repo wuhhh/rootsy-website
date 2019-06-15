@@ -32,7 +32,7 @@ export default {
       }
     }
 
-    window.addEventListener('scroll', scrollcallback)
+    window.addEventListener('scroll', scrollcallback, { passive: true })
   }
 }
 </script>
