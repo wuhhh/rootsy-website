@@ -60,7 +60,6 @@ import Menu from '@/components/Menu.vue'
 
 export default {
   components: {
-    Nav,
     CaseStudyNav,
     Logo,
     WPImageSet,

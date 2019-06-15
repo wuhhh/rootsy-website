@@ -16,7 +16,6 @@ import MenuDrawer from '@/components/MenuDrawer.vue'
 export default {
   name: 'Menu',
   components: {
-    Nav,
     Logo,
     MenuToggle,
     MenuDrawer
