@@ -68,9 +68,7 @@ export default {
 
 .menu--drawer a {
   display: block;
-  pointer-events: none;
   padding: 0.5em 0;
-  transform: translateY(-6px);
   /*transition: all 275ms ease;*/
 }
 
