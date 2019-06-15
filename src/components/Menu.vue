@@ -1,19 +1,25 @@
 <template>
-  <div id="fixed-menu">
-    <Logo/>
-    <Nav/>
+  <div id="menu">
+    <div class="layout">
+      <Logo/>
+      <MenuToggle/>
+    </div>
+    <MenuDrawer/>
   </div>
 </template>
 
 <script>
-import Nav from '@/components/Nav.vue'
 import Logo from '@/components/Logo.vue'
+import MenuToggle from '@/components/MenuToggle.vue'
+import MenuDrawer from '@/components/MenuDrawer.vue'
 
 export default {
-  name: 'MainMenu',
+  name: 'Menu',
   components: {
     Nav,
-    Logo
+    Logo,
+    MenuToggle,
+    MenuDrawer
   },
   mounted() {
     let fm = this.$el
@@ -33,21 +39,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#fixed-menu {
+#menu {
   transition: padding-top 250ms ease;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   box-sizing: border-box;
-  position: relative;
+
+  .layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
-#fixed-menu.fix {
+#menu.fix {
   position: fixed;
   top: 0;
   z-index: 2;
   padding: 1vmin 8vmin;
-  background: rgba(255, 255, 255, 0.96);
+  background: rgba(255, 255, 255, 1);
+}
+
+@media screen and (min-width: 768px) {
+  #menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 </style>

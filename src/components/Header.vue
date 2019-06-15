@@ -5,7 +5,7 @@
         <video id="kes" src="/video/kes2-compressed.mp4" type="video/mp4" autoplay loop muted/>
       </transition>
     </template>
-    <MainMenu/>
+    <Menu/>
     <transition appear name="fade-in">
       <h1 class="main">Web Design &amp; Development</h1>
     </transition>
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import MainMenu from '@/components/MainMenu.vue'
+import Menu from '@/components/Menu.vue'
 
 export default {
   data() {
@@ -32,7 +32,7 @@ export default {
     }
   },
   components: {
-    MainMenu
+    Menu
   },
   mounted() {
     const kes = document.createElement('video')

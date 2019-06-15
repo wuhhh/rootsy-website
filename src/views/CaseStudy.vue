@@ -1,7 +1,7 @@
 <template>
   <div v-if="caseStudy">
     <header>
-      <MainMenu/>
+      <Menu/>
       <div class="preamble with-intro">
         <div class="breadcrumb">
           <router-link :to="{ name: 'home' }">Index</router-link>&nbsp;/ Case Studies
@@ -49,7 +49,6 @@
 </template>
 
 <script>
-import Nav from '@/components/Nav.vue'
 import CaseStudyNav from '@/components/CaseStudyNav.vue'
 import Logo from '@/components/Logo.vue'
 import WPImageSet from '@/components/WPImageSet.vue'
@@ -57,7 +56,7 @@ import Tags from '@/components/Tags.vue'
 import Separator from '@/components/Separator.vue'
 import { mapGetters } from 'vuex'
 import store from '@/store'
-import MainMenu from '@/components/MainMenu.vue'
+import Menu from '@/components/Menu.vue'
 
 export default {
   components: {
@@ -67,7 +66,7 @@ export default {
     WPImageSet,
     Tags,
     Separator,
-    MainMenu
+    Menu
   },
   props: {
     caseStudy: {

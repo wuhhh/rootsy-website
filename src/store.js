@@ -10,7 +10,8 @@ export default new Vuex.Store({
     caseStudy: {},
     aboutMe: '',
     clients: '',
-    loading: true
+    loading: true,
+    menuState: false
   },
   mutations: {
     SET_CASE_STUDIES(state, caseStudies) {
@@ -27,6 +28,9 @@ export default new Vuex.Store({
     },
     SET_LOADING(state, loading) {
       state.loading = loading
+    },
+    SET_MENU_STATE(state, show) {
+      state.menuState = show
     }
   },
   actions: {
@@ -79,6 +83,9 @@ export default new Vuex.Store({
     },
     setLoading({ commit }, loading) {
       commit('SET_LOADING', loading)
+    },
+    setMenuState({ commit }, show) {
+      commit('SET_MENU_STATE', show)
     }
   },
   getters: {
