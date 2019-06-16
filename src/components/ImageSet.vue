@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import ContentService from '@/services/WPService.js'
 import lozad from 'lozad'
 
 export default {
@@ -21,9 +20,8 @@ export default {
       type: Number,
       default: null
     },
-    path: {
-      type: String,
-      default: '',
+    sizes: {
+      type: Object,
       required: true
     },
     alt: {
@@ -34,51 +32,41 @@ export default {
       type: String,
       required: false
     },
+    // Load on mounted()
     loadOnMount: {
+      type: Boolean,
+      required: false
+    },
+    // Allow load trigger by setting to true
+    triggerLoad: {
       type: Boolean,
       required: false
     }
   },
   data() {
     return {
-      baseURL: ContentService.getBaseURL(),
-      accessToken: ContentService.getAccessToken(),
-      loading: true
+      loading: true,
+      observer: null
+    }
+  },
+  watch: {
+    // Watch for changes to triggerLoad prop
+    triggerLoad: function() {
+      this.observer.triggerLoad(this.$el)
     }
   },
   computed: {
     defaultIMG() {
-      return (
-        this.baseURL +
-        '/cockpit/image?token=' +
-        this.accessToken +
-        '&src=' +
-        this.path +
-        '&m=fitToWidth&w=600&q=85&o=1'
-      )
+      return this.sizes['rootsy-small']
     },
     srcset() {
       let sets = []
 
       // 1000w
-      sets.push(
-        this.baseURL +
-          '/cockpit/image?token=' +
-          this.accessToken +
-          '&src=' +
-          this.path +
-          '&m=fitToWidth&w=1000&q=85&o=1 1000w'
-      )
+      sets.push(this.sizes['rootsy-medium'] + ' 1000w')
 
       // 2000w
-      sets.push(
-        this.baseURL +
-          '/cockpit/image?token=' +
-          this.accessToken +
-          '&src=' +
-          this.path +
-          '&m=resize&w=2000&q=85&o=1 2000w'
-      )
+      sets.push(this.sizes['rootsy-large'] + ' 2000w')
 
       return sets.join(',')
     },
@@ -121,8 +109,9 @@ export default {
     // the `load` event, the loading state is
     // set to `false`, which removes the apsect
     // ratio we've applied earlier.
-    const setLoadingState = () => {
+    const setLoadingState = event => {
       this.loading = false
+      this.$emit('imageDidLoad', event)
     }
     this.$el.addEventListener('load', setLoadingState)
     // We remove the event listener as soon as
@@ -134,11 +123,11 @@ export default {
 
     // We initialize Lozad.js on the root
     // element of our component.
-    const observer = lozad(this.$el)
-    observer.observe()
+    this.observer = lozad(this.$el)
+    this.observer.observe()
 
     // Don't wait for viewport scroll, load immediately
-    if (this.loadOnMount) observer.triggerLoad(this.$el)
+    if (this.loadOnMount) this.observer.triggerLoad(this.$el)
   }
 }
 </script>
