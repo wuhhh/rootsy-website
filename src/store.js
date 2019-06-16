@@ -62,6 +62,7 @@ export default new Vuex.Store({
       }
     },
     fetchAboutMe({ commit }) {
+      /* TODO: Get from store when possible */
       return ContentService.getPageBySlug('about')
         .then(response => {
           commit('SET_ABOUT_ME', response.data[0])
@@ -72,6 +73,7 @@ export default new Vuex.Store({
         })
     },
     fetchClients({ commit }) {
+      /* TODO: Get from store when possible */
       return ContentService.getPageBySlug('clients')
         .then(response => {
           commit('SET_CLIENTS', response.data[0])
