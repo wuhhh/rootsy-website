@@ -34,14 +34,15 @@
           <div class="browser-window--viewport">
             <template v-for="(client, key) in clients.acf.selected_work">
               <template v-if="!client.defunct">
-                <WPImageSet
+                <ImageSet
                   v-show="key == clientIndex"
+                  v-on:imageDidLoad="handleImageDidLoad()"
                   :key="key"
                   :width="client.image.width"
                   :height="client.image.height"
                   :sizes="client.image.sizes"
                   :alt="client.image.alt"
-                  :loadOnMount="true"
+                  :triggerLoad="triggerLoad"
                 />
               </template>
             </template>
@@ -54,20 +55,21 @@
 
 <script>
 import { mapState } from 'vuex'
-import WPImageSet from '@/components/WPImageSet.vue'
+import ImageSet from '@/components/ImageSet.vue'
 
 export default {
   name: 'Clients',
   components: {
-    WPImageSet
+    ImageSet
   },
   data() {
     return {
-      rotateDelay: 500,
+      rotateDelay: 750,
       playing: true,
       counter: 0,
       clientIndex: 0,
-      imagesPreloaded: 0
+      imagesPreloaded: 0,
+      triggerLoad: false
     }
   },
   computed: {
@@ -118,6 +120,10 @@ export default {
     switchClientTo(index) {
       this.playing = false
       this.clientIndex = index
+    },
+    handleImageDidLoad() {
+      console.log('Image did load')
+      this.triggerLoad = true
     }
   }
 }
