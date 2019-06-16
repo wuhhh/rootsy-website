@@ -20,7 +20,7 @@
         :key="caseStudy.id + '_' + index"
       >
         <div v-if="content.acf_fc_layout == 'text_block'" v-html="content.text"/>
-        <WPImageSet
+        <ImageSet
           v-if="content.acf_fc_layout == 'image_block'"
           :sizes="content.image.sizes"
           :alt="content.image.alt"
@@ -51,7 +51,7 @@
 <script>
 import CaseStudyNav from '@/components/CaseStudyNav.vue'
 import Logo from '@/components/Logo.vue'
-import WPImageSet from '@/components/WPImageSet.vue'
+import ImageSet from '@/components/ImageSet.vue'
 import Tags from '@/components/Tags.vue'
 import Separator from '@/components/Separator.vue'
 import { mapGetters } from 'vuex'
@@ -62,7 +62,7 @@ export default {
   components: {
     CaseStudyNav,
     Logo,
-    WPImageSet,
+    ImageSet,
     Tags,
     Separator,
     Menu

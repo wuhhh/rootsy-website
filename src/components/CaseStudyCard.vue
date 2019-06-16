@@ -18,7 +18,7 @@
           </div>
         </div>
         <div class="item--image">
-          <WPImageSet
+          <ImageSet
             :width="caseStudy.acf.primary_image.width"
             :height="caseStudy.acf.primary_image.height"
             :sizes="caseStudy.acf.primary_image.sizes"
@@ -32,7 +32,7 @@
 
 <script>
 import AnchorViewCaseStudy from '@/components/AnchorViewCaseStudy.vue'
-import WPImageSet from '@/components/WPImageSet.vue'
+import ImageSet from '@/components/ImageSet.vue'
 
 export default {
   data() {
@@ -85,7 +85,7 @@ export default {
   },
   components: {
     AnchorViewCaseStudy,
-    WPImageSet
+    ImageSet
   },
   props: {
     caseStudy: Object

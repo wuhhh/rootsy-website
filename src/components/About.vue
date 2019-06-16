@@ -5,7 +5,7 @@
       <div class="pad">
         <div class="section-title">About Rootsy</div>
         <div class="layout">
-          <WPImageSet
+          <ImageSet
             classes="profile"
             :sizes="aboutMe.acf.primary_image.sizes"
             :alt="aboutMe.acf.primary_image.alt"
@@ -31,7 +31,7 @@
 <script>
 import SpanClipReveal from '@/components/SpanClipReveal.vue'
 import Siney from '@/components/Siney.vue'
-import WPImageSet from '@/components/WPImageSet.vue'
+import ImageSet from '@/components/ImageSet.vue'
 import { mapState } from 'vuex'
 
 export default {
@@ -41,7 +41,7 @@ export default {
   components: {
     SpanClipReveal,
     Siney,
-    WPImageSet
+    ImageSet
   }
 }
 </script>
