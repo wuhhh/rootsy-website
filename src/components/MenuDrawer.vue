@@ -105,5 +105,18 @@ export default {
       padding-right: 2vw;
     }
   }
+
+  .menu--drawer.open {
+    display: block;
+    position: initial;
+    right: initial;
+    padding: initial;
+    top: initial;
+    background: initial;
+    width: initial;
+    box-sizing: initial;
+    box-shadow: initial;
+    z-index: initial;
+  }
 }
 </style>
