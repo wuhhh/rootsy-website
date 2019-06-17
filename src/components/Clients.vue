@@ -122,7 +122,6 @@ export default {
       this.clientIndex = index
     },
     handleImageDidLoad() {
-      console.log('Image did load')
       this.triggerLoad = true
     }
   }
