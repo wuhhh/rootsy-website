@@ -100,6 +100,10 @@ header {
     @media screen and (min-width: 1500px) {
       width: 86px;
     }
+
+    @media screen and (min-width: 2000px) {
+      width: 96px;
+    }
   }
 
   .preamble {
