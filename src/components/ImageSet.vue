@@ -1,5 +1,11 @@
 <template>
-  <img :data-src="defaultIMG" :data-srcset="srcset" :alt="alt" :class="classes" :style="style">
+  <img
+    :data-src="defaultIMG"
+    :data-srcset="srcset"
+    :alt="alt"
+    :class="classes"
+    :style="style"
+  />
 </template>
 
 <script>
@@ -132,5 +138,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>
