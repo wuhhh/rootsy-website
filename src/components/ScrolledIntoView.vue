@@ -50,14 +50,12 @@ export default {
     }
   },
   mounted() {
-
-    // features are natively supported.
     if (
       'IntersectionObserver' in window &&
       'IntersectionObserverEntry' in window &&
       'intersectionRatio' in window.IntersectionObserverEntry.prototype
     ) {
-      // Minimal polyfill for Edge 15's lack of `isIntersecting`
+      // Minimal polyfil of `isIntersecting`
       // See: https://github.com/w3c/IntersectionObserver/issues/211
       if (!('isIntersecting' in window.IntersectionObserverEntry.prototype)) {
         Object.defineProperty(
