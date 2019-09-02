@@ -1,10 +1,10 @@
 <template>
   <div id="menu">
     <div class="layout">
-      <Logo />
-      <MenuToggle />
+      <Logo/>
+      <MenuToggle/>
     </div>
-    <MenuDrawer />
+    <MenuDrawer/>
   </div>
 </template>
 
