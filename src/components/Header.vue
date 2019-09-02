@@ -2,10 +2,17 @@
   <header class="fit-height">
     <template v-if="videoIsReady">
       <transition appear name="fade-in">
-        <video id="kes" src="/video/kes2-compressed.mp4" type="video/mp4" autoplay loop muted/>
+        <video
+          id="kes"
+          src="/video/kes2-compressed.mp4"
+          type="video/mp4"
+          autoplay
+          loop
+          muted
+        />
       </transition>
     </template>
-    <Menu/>
+    <Menu />
     <transition appear name="fade-in">
       <h1 class="main">Web Design &amp; Development</h1>
     </transition>

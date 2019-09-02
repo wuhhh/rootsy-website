@@ -5,8 +5,14 @@
       @click.prevent="handleNav($event)"
       data-to-element="section.featured-work"
       href="#"
-    >Case Studies</a>
-    <a @click.prevent="handleNav($event)" data-to-element="section.about" href="#">About</a>
+      >Case Studies</a
+    >
+    <a
+      @click.prevent="handleNav($event)"
+      data-to-element="section.about"
+      href="#"
+      >About</a
+    >
     <a href="mailto:hello@rootsy.co.uk">hello@rootsy.co.uk</a>
   </div>
 </template>
