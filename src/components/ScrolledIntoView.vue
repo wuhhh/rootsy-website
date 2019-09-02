@@ -50,8 +50,7 @@ export default {
     }
   },
   mounted() {
-    // https://github.com/w3c/IntersectionObserver/blob/master/polyfill/intersection-observer.js
-    // Check if  IntersectionObserver and IntersectionObserverEntry
+
     // features are natively supported.
     if (
       'IntersectionObserver' in window &&
