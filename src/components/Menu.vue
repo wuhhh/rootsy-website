@@ -1,10 +1,12 @@
 <template>
   <div id="menu">
     <div class="layout">
-      <Logo/>
-      <MenuToggle/>
+      <router-link to="/">
+        <Logo />
+      </router-link>
+      <MenuToggle />
     </div>
-    <MenuDrawer/>
+    <MenuDrawer />
   </div>
 </template>
 
