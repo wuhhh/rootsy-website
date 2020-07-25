@@ -12,18 +12,13 @@
         >
           <div class="pad">
             <div class="layout">
-              <div>
-                <div class="item--words">
-                  <div class="item--title">{{ caseStudy.title.rendered }}</div>
-                  <div class="item--description">
-                    <div v-html="caseStudy.acf.excerpt" />
-                    <p>
-                      <AnchorViewCaseStudy
-                        :isDark="caseStudy.acf.dark_mode"
-                        :slug="caseStudy.slug"
-                      />
-                    </p>
-                  </div>
+              <div class="item--words">
+                <div class="item--title">{{ caseStudy.title.rendered }}</div>
+                <div class="item--description">
+                  <div v-html="caseStudy.acf.excerpt" />
+                  <p>
+                    <AnchorViewCaseStudy :isDark="caseStudy.acf.dark_mode" :slug="caseStudy.slug" />
+                  </p>
                 </div>
               </div>
               <div class="item--image">
@@ -61,6 +56,10 @@ export default {
 
 <style lang="scss">
 @import '@/sass/_settings.scss';
+
+.item--words {
+  margin-bottom: 30px;
+}
 
 .item.is_dark {
   color: #bfbfbf;
