@@ -1,7 +1,7 @@
 <template>
-  <div :class="{loading: loading}" id="app">
-    <router-view/>
-    <Loader/>
+  <div :class="{ loading: loading }" id="app">
+    <router-view />
+    <Loader />
   </div>
 </template>
 

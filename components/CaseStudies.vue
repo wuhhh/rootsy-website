@@ -18,18 +18,17 @@ export default {
     AnchorViewCaseStudy,
     CaseStudyCard
   },
-  props: {
-    list: {
-      type: Array,
-      required: true
-    }
+  computed: {
+    ...mapState({
+      list: state => {
+        return state.caseStudies.list
+      }
+    })
   }
 }
 </script>
 
 <style lang="scss">
-@import '@/sass/_settings.scss';
-
 section.featured-work {
   .featured-work--item {
     overflow: hidden; /* Knock out drop shadow */
