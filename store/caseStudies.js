@@ -24,7 +24,6 @@ export const actions = {
       })
       .then(response => {
         if (response.status === 200) {
-          console.log(response.data)
           commit('SET_CASE_STUDIES', response.data)
           return response.data
         }
