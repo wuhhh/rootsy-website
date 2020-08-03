@@ -79,7 +79,7 @@ export default {
    */
   generate: {
     dir: "dist",
-    fallback: "404.html",
+    fallback: true,
     interval: 200, // interval in ms; server WILL bail if this is too small!
     routes: [
       "/",
