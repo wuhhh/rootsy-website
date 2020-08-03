@@ -1,4 +1,5 @@
 {
+  "editor.formatOnSave": false,
   "eslint.validate": ["vue", "javascript", "javascriptreact"],
   "[scss]": {
     "editor.formatOnSave": true,
