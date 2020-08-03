@@ -1,22 +1,22 @@
 <template>
   <nav class="work-nav">
     <div class="work-nav--prev">
-      <router-link
+      <n-link
         v-if="previous"
-        :to="{ name: 'case-study-show', params: { titleslug: previous.slug } }"
+        :to="{ path: `/case-study/${previous.slug}`, params: { slug: previous.slug } }"
         rel="prev"
       >
         <span>Prev</span>
-      </router-link>
+      </n-link>
     </div>
     <div class="work-nav--next">
-      <router-link
+      <n-link
         v-if="next"
-        :to="{ name: 'case-study-show', params: { titleslug: next.slug } }"
+        :to="{ path: `/case-study/${next.slug}`, params: { slug: next.slug } }"
         rel="next"
       >
         <span>Next</span>
-      </router-link>
+      </n-link>
     </div>
   </nav>
 </template>

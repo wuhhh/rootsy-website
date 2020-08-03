@@ -34,7 +34,7 @@ export default {
     handleNav(event) {
       if (window.location.pathname != '/') {
         // Route change
-        this.$router.push({ name: 'home' }, () => {
+        this.$router.push({ path: '/' }, () => {
           // Completed
           setTimeout(() => {
             VueScrollTo.scrollTo(event.target.getAttribute('data-to-element'))

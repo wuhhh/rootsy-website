@@ -4,7 +4,7 @@
       <transition appear name="fade-in">
         <video
           id="kes"
-          src="/video/kes2-compressed.mp4"
+          :src="src"
           type="video/mp4"
           autoplay
           loop
@@ -35,7 +35,8 @@ import Menu from '@/components/Menu.vue'
 export default {
   data() {
     return {
-      videoIsReady: false
+      videoIsReady: false,
+      src: null
     }
   },
   components: {
@@ -43,8 +44,9 @@ export default {
   },
   mounted() {
     const kes = document.createElement('video')
-
-    kes.src = '/video/kes2-compressed.mp4'
+    
+    this.src = require('~/assets/video/kes2-compressed.mp4');
+    kes.src = this.src;
     kes.type = 'video/mp4'
     kes.autoplay = true
     kes.loop = true
@@ -144,6 +146,7 @@ header {
     line-height: 1.3em;
     text-align: center;
     font-family: 'CanelaDeck';
+    font-weight:normal;
     transform: translateY(-65px);
   }
 

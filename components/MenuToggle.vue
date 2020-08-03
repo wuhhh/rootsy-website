@@ -18,7 +18,7 @@ export default {
   name: 'MenuToggle',
   methods: {
     toggleMenu() {
-      //store.dispatch('setMenuState', !store.state.menuState)
+      this.$store.dispatch('setMenuState', !this.menuState)
     }
   },
   computed: {

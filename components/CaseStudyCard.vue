@@ -15,13 +15,12 @@
               <div class="item--words">
                 <div class="item--title">{{ caseStudy.title.rendered }}</div>
                 <div class="item--description">
-                  <div v-html="caseStudy.acf.excerpt" />
-                  <p>
-                    <AnchorViewCaseStudy
-                      :isDark="caseStudy.acf.dark_mode"
-                      :slug="caseStudy.slug"
-                    />
-                  </p>
+                  <div v-html="caseStudy.acf.excerpt"></div>
+                
+                  <AnchorViewCaseStudy
+                    :isDark="caseStudy.acf.dark_mode"
+                    :slug="caseStudy.slug"
+                  />
                 </div>
               </div>
               <div class="item--image">

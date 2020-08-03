@@ -1,12 +1,9 @@
 <template>
   <div class="view-case-study">
-    <router-link
-      :to="{ name: 'case-study-show', params: { titleslug: slug } }"
+     <nuxt-link :to="{ path: `case-study/${slug}`, params: { slug } }"
       @mouseover.native="mouseOver()"
       :class="[{ 'play-transition': playTransition }, 'icon-eye-' + color]"
-      class="icon icon-before"
-      >View case study</router-link
-    >
+      class="icon icon-before">View case study</nuxt-link>
   </div>
 </template>
 

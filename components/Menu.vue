@@ -1,9 +1,9 @@
 <template>
   <div id="menu">
     <div class="layout">
-      <router-link to="/">
+      <n-link to="/">
         <Logo />
-      </router-link>
+      </n-link>
       <MenuToggle />
     </div>
     <MenuDrawer />

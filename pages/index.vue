@@ -3,6 +3,7 @@
     <Header />
     <CaseStudies v-if="list" />
     <About />
+    <Clients />
     <Footer />
   </div>
 </template>
@@ -30,16 +31,14 @@ export default {
   },
   async fetch({ store }) {
     await Promise.all([
-      store.dispatch('caseStudies/getAll')
-      //store.dispatch('fetchAboutMe'),
-      //store.dispatch('fetchClients')
+      store.dispatch('caseStudies/getAll'),
+      store.dispatch('fetchAboutMe'),
+      store.dispatch('fetchClients')
     ])
   },
   computed: {
     ...mapState({
-      list: state => {
-        return state.caseStudies.list
-      }
+      list: state => state.caseStudies.list
     })
   },
   methods: {

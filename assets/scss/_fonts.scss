@@ -3,9 +3,9 @@
   font-style: normal;
   font-weight: normal;
   src: local('CanelaDeck'), local('CanelaDeck-Light'),
-    url(/fonts/canela-deck/CanelaDeck-Light-Web.ttf) format('opentype'),
-    url(/fonts/canela-deck/CanelaDeck-Light-Web.woff) format('woff'),
-    url(/fonts/canela-deck/CanelaDeck-Light-Web.woff2) format('woff2');
+    url(../fonts/canela-deck/CanelaDeck-Light-Web.ttf) format('opentype'),
+    url(../fonts/canela-deck/CanelaDeck-Light-Web.woff) format('woff'),
+    url(../fonts/canela-deck/CanelaDeck-Light-Web.woff2) format('woff2');
 }
 
 /*
@@ -14,9 +14,9 @@
   font-style: italic;
   font-weight: normal;
   src: local("CanelaDeck-Italic"),
-    url(/fonts/canela-deck/CanelaDeck-LightItalic-Web.ttf) format("opentype"),
-    url(/fonts/canela-deck/CanelaDeck-LightItalic-Web.woff) format("woff"),
-    url(/fonts/canela-deck/CanelaDeck-LightItalic-Web.woff2) format("woff2");
+    url(../fonts/canela-deck/CanelaDeck-LightItalic-Web.ttf) format("opentype"),
+    url(../fonts/canela-deck/CanelaDeck-LightItalic-Web.woff) format("woff"),
+    url(../fonts/canela-deck/CanelaDeck-LightItalic-Web.woff2) format("woff2");
 }
 */
 
@@ -25,8 +25,8 @@
   font-style: normal;
   font-weight: normal;
   src: local('UntitledSans'), local('UntitledSans-Regular'),
-    url(/fonts/untitled-sans/UntitledSans-Regular.ttf) format('opentype'),
-    url(/fonts/untitled-sans/UntitledSans-Regular.woff) format('woff2');
+    url(../fonts/untitled-sans/UntitledSans-Regular.ttf) format('opentype'),
+    url(../fonts/untitled-sans/UntitledSans-Regular.woff2) format('woff2');
 }
 
 @font-face {
@@ -34,8 +34,8 @@
   font-style: italic;
   font-weight: normal;
   src: local('UntitledSans-RegularItalic.ttf'),
-    url(/fonts/untitled-sans/UntitledSans-RegularItalic.ttf) format('opentype'),
-    url(/fonts/untitled-sans/UntitledSans-RegularItalic.woff2) format('woff2');
+    url(../fonts/untitled-sans/UntitledSans-RegularItalic.ttf) format('opentype'),
+    url(../fonts/untitled-sans/UntitledSans-RegularItalic.woff2) format('woff2');
 }
 
 @font-face {
@@ -43,8 +43,8 @@
   font-style: normal;
   font-weight: bold;
   src: local('UntitledSans-Medium'),
-    url(/fonts/untitled-sans/UntitledSans-Medium.ttf) format('opentype'),
-    url(/fonts/untitled-sans/UntitledSans-Medium.woff) format('woff2');
+    url(../fonts/untitled-sans/UntitledSans-Medium.ttf) format('opentype'),
+    url(../fonts/untitled-sans/UntitledSans-Medium.woff2) format('woff2');
 }
 
 @font-face {
@@ -52,6 +52,6 @@
   font-style: italic;
   font-weight: bold;
   src: local('UntitledSans-MediumItalic.ttf'),
-    url(/fonts/untitled-sans/UntitledSans-MediumItalic.ttf) format('opentype'),
-    url(/fonts/untitled-sans/UntitledSans-MediumItalic.woff2) format('woff2');
+    url(../fonts/untitled-sans/UntitledSans-MediumItalic.ttf) format('opentype'),
+    url(../fonts/untitled-sans/UntitledSans-MediumItalic.woff2) format('woff2');
 }

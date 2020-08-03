@@ -100,7 +100,7 @@ section.featured-work {
 
       & > div {
         flex-basis: 50%;
-        flex-shrink: 0;
+        //flex-shrink: 0;
       }
     }
 
