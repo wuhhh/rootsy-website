@@ -1,54 +1,53 @@
-import axios from 'axios'
-const env = require('dotenv').config()
+import axios from "axios";
 
 export default {
-  mode: 'universal',
+  mode: "universal",
   env: {
     API_URL:
-      process.env.npm_package_name || 'https://wp.rootsy.co.uk/wp-json/wp/v2'
+      process.env.npm_package_name || "https://wp.rootsy.co.uk/wp-json/wp/v2"
   },
   /*
    ** Headers of the page
    */
   head: {
-    title: process.env.npm_package_name || '',
+    title: process.env.npm_package_name || "",
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
-        hid: 'description',
-        name: 'description',
-        content: process.env.npm_package_description || ''
+        hid: "description",
+        name: "description",
+        content: process.env.npm_package_description || ""
       }
     ]
   },
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#000' },
+  loading: { color: "#000" },
 
   pageTransition: {
-    name: 'page',
+    name: "page",
     duration: 500
   },
 
   /*
    ** Global CSS
    */
-  css: ['normalize.css/normalize.css', '@/assets/scss/main.scss'],
+  css: ["normalize.css/normalize.css", "@/assets/scss/main.scss"],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: '~/plugins/widows.client.js' }],
+  plugins: [{ src: "~/plugins/widows.client.js" }],
   /*
    ** Nuxt.js modules
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
-    '@nuxtjs/style-resources',
-    '@nuxtjs/sitemap',
-    ['@nuxtjs/google-tag-manager', { id: '' }]
+    "@nuxtjs/axios",
+    "@nuxtjs/style-resources",
+    "@nuxtjs/sitemap",
+    ["@nuxtjs/google-tag-manager", { id: "" }]
   ],
   /*
    ** Axios module configuration
@@ -64,7 +63,7 @@ export default {
    ** See https://hackernoon.com/how-i-use-scss-variables-mixins-functions-globally-in-nuxt-js-projects-while-compiling-css-utilit-58bb6ff30438
    */
   styleResources: {
-    scss: ['@/assets/scss/_settings.scss']
+    scss: ["@/assets/scss/_settings.scss"]
   },
   /*
    ** Build configuration
@@ -79,8 +78,8 @@ export default {
    ** Generate configuration
    */
   generate: {
-    dir: 'public',
-    fallback: '404.html',
+    dir: "public",
+    fallback: "404.html",
     interval: 200, // interval in ms; server WILL bail if this is too small!
     routes: () => {
       /**
@@ -161,4 +160,4 @@ export default {
       */
     }
   }
-}
+};

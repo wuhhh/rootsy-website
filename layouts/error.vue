@@ -1,36 +1,37 @@
 <template>
   <div class="fit-height">
     <div class="sorry">
-      <h1>No such luck :/</h1>That page wasn't found - you might have followed an outdated link.
-      <br>Returning to the
+      <h1>No such luck :/</h1>
+      That page wasn't found - you might have followed an outdated link.
+      <br />Returning to the
       <router-link :to="{ name: 'home' }">Index</router-link>...
-      <Logo class="logo"/>
+      <Logo class="logo" />
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '@/components/Logo.vue'
+import Logo from "@/components/Logo.vue";
 
 export default {
   components: {
     Logo
   },
   mounted() {
-    this.addMetaData()
+    this.addMetaData();
 
     setTimeout(() => {
-      window.location.href = '/'
-    }, 4000)
+      window.location.href = "/";
+    }, 4000);
   },
   methods: {
     addMetaData() {
       if (document) {
-        document.title = 'Rootsy | Page Not Found'
+        document.title = "Rootsy | Page Not Found";
       }
     }
   }
-}
+};
 </script>
 
 <style scoped lang="scss">

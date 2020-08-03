@@ -12,19 +12,19 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from "vuex";
 
 export default {
-  name: 'MenuToggle',
+  name: "MenuToggle",
   methods: {
     toggleMenu() {
-      this.$store.dispatch('setMenuState', !this.menuState)
+      this.$store.dispatch("setMenuState", !this.menuState);
     }
   },
   computed: {
-    ...mapState(['menuState'])
+    ...mapState(["menuState"])
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
