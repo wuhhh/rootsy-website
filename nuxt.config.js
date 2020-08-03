@@ -46,7 +46,7 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     "@nuxtjs/axios",
     "@nuxtjs/style-resources",
-    "@nuxtjs/sitemap",
+    //"@nuxtjs/sitemap",
     ["@nuxtjs/google-tag-manager", { id: "" }]
   ],
   /*
@@ -78,15 +78,26 @@ export default {
    ** Generate configuration
    */
   generate: {
-    dir: "public",
+    dir: "dist",
     fallback: "404.html",
     interval: 200, // interval in ms; server WILL bail if this is too small!
-    routes: () => {
+    routes: [
+      "/",
+      "/case-study/zen",
+      "/case-study/e-international-relations",
+      "/case-study/flip",
+      "/case-study/serein",
+      "/case-study/serein-audiovisual",
+      "/case-study/drum-networking"
+    ]
+    /*
+    routes: 
+      () => {
       /**
        * WITH PAYLOADS
        */
-      // Generate project routes
-      /*
+    // Generate project routes
+    /*
       let projects = axios
         .get(this.default.axios.baseURL + '/!/Fetch/collection/work', {
           params: {
@@ -105,8 +116,8 @@ export default {
           })
         })
       */
-      // Generate journal routes (needs users + journals)
-      /*
+    // Generate journal routes (needs users + journals)
+    /*
       let users = axios.get(this.default.axios.baseURL + '/!/Fetch/users')
       let journals = axios.get(
         this.default.axios.baseURL + '/!/Fetch/collection/journal',
@@ -132,8 +143,8 @@ export default {
         })
       })
       */
-      // Generate internal routes
-      /*
+    // Generate internal routes
+    /*
       let internals = axios
         .get(this.default.axios.baseURL + '/!/Fetch/collection/internal', {
           params: {
@@ -158,6 +169,6 @@ export default {
         return [...projects, ...users_journals, ...internals]
       })
       */
-    }
+    //}
   }
 };
