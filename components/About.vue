@@ -1,10 +1,13 @@
 <template>
-  <ScrolledIntoView :observer-options="{ threshold: 0.1 }">
+  <ScrolledIntoView
+    :observer-options="{ threshold: 0.1, rootMargin: '0px 0px 100% 0px' }"
+  >
     <template v-slot:default="scroll">
       <section class="fit-height about">
         <template v-if="aboutMe">
-          <Siney v-if="scroll.inRange" />
-
+          <transition name="fade">
+            <Siney v-if="scroll.inRange" />
+          </transition>
           <div class="pad">
             <div class="section-title">About Rootsy</div>
             <div class="layout">

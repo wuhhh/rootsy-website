@@ -8,18 +8,6 @@
 export default {
   name: "ScrolledIntoView",
   props: {
-    // Pad horizontal centre up and down
-    midPad: {
-      type: Number,
-      required: false,
-      default: 600
-    },
-    // Offset midPad
-    offset: {
-      type: Number,
-      required: false,
-      default: 0
-    },
     // Use position of parent El instead of this.$el
     useParent: {
       type: Boolean,
@@ -43,11 +31,6 @@ export default {
       inRange: false,
       observer: null
     };
-  },
-  computed: {
-    pad() {
-      return this.midPad + this.offset;
-    }
   },
   mounted() {
     if (
