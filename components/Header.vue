@@ -1,17 +1,13 @@
 <template>
   <header class="fit-height">
-    <template v-if="videoIsReady">
-      <transition appear name="fade-in">
-        <video
-          id="kes"
-          :src="src"
-          type="video/mp4"
-          autoplay
-          loop
-          muted
-        />
-      </transition>
-    </template>
+    <video
+      id="kes"
+      :src="require('~/assets/video/kes2-compressed.mp4')"
+      type="video/mp4"
+      autoplay
+      loop
+      muted
+    />
     <Menu />
     <transition appear name="fade-in">
       <h1 class="main">Web Design &amp; Development</h1>
@@ -30,39 +26,41 @@
 </template>
 
 <script>
-import Menu from '@/components/Menu.vue'
+import Menu from "@/components/Menu.vue";
 
 export default {
+  components: {
+    Menu
+  },
   data() {
     return {
       videoIsReady: false,
       src: null
-    }
-  },
-  components: {
-    Menu
+    };
   },
   mounted() {
-    const kes = document.createElement('video')
-    
-    this.src = require('~/assets/video/kes2-compressed.mp4');
+    /*
+    const kes = document.createElement("video");
+
+    this.src = require("~/assets/video/kes2-compressed.mp4");
     kes.src = this.src;
-    kes.type = 'video/mp4'
-    kes.autoplay = true
-    kes.loop = true
-    kes.muted = true
+    kes.type = "video/mp4";
+    kes.autoplay = true;
+    kes.loop = true;
+    kes.muted = true;
 
     kes.oncanplaythrough = function() {
-      this.videoIsReady = true
-    }.bind(this)
+      this.videoIsReady = true;
+    }.bind(this);
 
     // Fix for cached video loading before onplaythrough event is registered
     // See: https://stackoverflow.com/a/26034492
     setTimeout(() => {
-      if (kes.readyState > 3) this.videoIsReady = true
-    }, 500)
+      if (kes.readyState > 3) this.videoIsReady = true;
+    }, 500);
+    */
   }
-}
+};
 </script>
 
 <style lang="scss">
@@ -145,8 +143,8 @@ header {
     font-size: 10vw;
     line-height: 1.3em;
     text-align: center;
-    font-family: 'CanelaDeck';
-    font-weight:normal;
+    font-family: "CanelaDeck";
+    font-weight: normal;
     transform: translateY(-65px);
   }
 
