@@ -1,0 +1,13 @@
+{
+  "editor.formatOnSave": false,
+  "eslint.validate": ["vue", "javascript", "javascriptreact"],
+  "[scss]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
+  },
+  "vetur.validation.template": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "scss.lint.duplicateProperties": "warning"
+}
