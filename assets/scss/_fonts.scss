@@ -6,6 +6,7 @@
     url(../fonts/canela-deck/CanelaDeck-Light-Web.ttf) format("opentype"),
     url(../fonts/canela-deck/CanelaDeck-Light-Web.woff) format("woff"),
     url(../fonts/canela-deck/CanelaDeck-Light-Web.woff2) format("woff2");
+  font-display: swap;
 }
 
 /*
@@ -27,6 +28,7 @@
   src: local("UntitledSans"), local("UntitledSans-Regular"),
     url(../fonts/untitled-sans/UntitledSans-Regular.ttf) format("opentype"),
     url(../fonts/untitled-sans/UntitledSans-Regular.woff2) format("woff2");
+  font-display: swap;
 }
 
 @font-face {
@@ -37,6 +39,7 @@
     url(../fonts/untitled-sans/UntitledSans-RegularItalic.ttf)
       format("opentype"),
     url(../fonts/untitled-sans/UntitledSans-RegularItalic.woff2) format("woff2");
+  font-display: swap;
 }
 
 @font-face {
@@ -46,6 +49,7 @@
   src: local("UntitledSans-Medium"),
     url(../fonts/untitled-sans/UntitledSans-Medium.ttf) format("opentype"),
     url(../fonts/untitled-sans/UntitledSans-Medium.woff2) format("woff2");
+  font-display: swap;
 }
 
 /*
