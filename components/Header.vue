@@ -1,17 +1,7 @@
 <template>
   <header class="fit-height">
-    <video
-      id="kes"
-      :src="require('~/assets/video/kes2-compressed.mp4')"
-      type="video/mp4"
-      autoplay
-      loop
-      muted
-    />
     <Menu />
-    <transition appear name="fade-in">
-      <h1 class="main">Web Design &amp; Development</h1>
-    </transition>
+    <h1 class="main">Web Design &amp; Development</h1>
     <div class="section-title with-icon-left">
       <span>Case Studies</span>
       <svg viewBox="0 0 40 40">
