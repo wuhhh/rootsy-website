@@ -16,9 +16,9 @@
                 <div class="item--title">{{ caseStudy.title.rendered }}</div>
                 <div class="item--description">
                   <div v-html="caseStudy.acf.excerpt"></div>
-                
+
                   <AnchorViewCaseStudy
-                    :isDark="caseStudy.acf.dark_mode"
+                    :is-dark="caseStudy.acf.dark_mode"
                     :slug="caseStudy.slug"
                   />
                 </div>
@@ -40,9 +40,9 @@
 </template>
 
 <script>
-import AnchorViewCaseStudy from '@/components/AnchorViewCaseStudy.vue'
-import ImageSet from '@/components/ImageSet.vue'
-import ScrolledIntoView from '@/components/ScrolledIntoView.vue'
+import AnchorViewCaseStudy from "@/components/AnchorViewCaseStudy.vue";
+import ImageSet from "@/components/ImageSet.vue";
+import ScrolledIntoView from "@/components/ScrolledIntoView.vue";
 
 export default {
   components: {
@@ -53,7 +53,7 @@ export default {
   props: {
     caseStudy: Object
   }
-}
+};
 </script>
 
 <style lang="scss">
