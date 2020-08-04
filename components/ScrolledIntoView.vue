@@ -6,13 +6,7 @@
 
 <script>
 export default {
-  name: 'ScrolledIntoView',
-  data() {
-    return {
-      inRange: false,
-      observer: null
-    }
-  },
+  name: "ScrolledIntoView",
   props: {
     // Pad horizontal centre up and down
     midPad: {
@@ -38,55 +32,61 @@ export default {
       default: () => {
         return {
           root: null,
-          rootMargin: '0px',
-          threshold: 1.0
-        }
+          rootMargin: "0px 0px 0px 0px",
+          threshold: 0.1
+        };
       }
     }
   },
+  data() {
+    return {
+      inRange: false,
+      observer: null
+    };
+  },
   computed: {
     pad() {
-      return this.midPad + this.offset
+      return this.midPad + this.offset;
     }
   },
   mounted() {
     if (
       window &&
-      'IntersectionObserver' in window &&
-      'IntersectionObserverEntry' in window &&
-      'intersectionRatio' in window.IntersectionObserverEntry.prototype
+      "IntersectionObserver" in window &&
+      "IntersectionObserverEntry" in window &&
+      "intersectionRatio" in window.IntersectionObserverEntry.prototype
     ) {
       // Minimal polyfil of `isIntersecting`
       // See: https://github.com/w3c/IntersectionObserver/issues/211
-      if (!('isIntersecting' in window.IntersectionObserverEntry.prototype)) {
+      if (!("isIntersecting" in window.IntersectionObserverEntry.prototype)) {
         Object.defineProperty(
           window.IntersectionObserverEntry.prototype,
-          'isIntersecting',
+          "isIntersecting",
           {
             get: function() {
-              return this.intersectionRatio > 0
+              return this.intersectionRatio > 0;
             }
           }
-        )
+        );
       }
 
       // Observer callback
       const observerCallback = entries => {
-        if (entries[0].isIntersecting) this.inRange = true
-      }
+        if (entries[0].isIntersecting) this.inRange = true;
+      };
 
       // Create the observer
       this.observer = new IntersectionObserver(
         observerCallback,
         this.observerOptions
-      )
+      );
 
       // Watch
-      let target = this.useParent ? this.$parent.$el : this.$el
-      this.observer.observe(target)
+      let target = this.useParent ? this.$parent.$el : this.$el;
+      this.observer.observe(target);
     }
   }
-}
+};
 </script>
 
 <style></style>

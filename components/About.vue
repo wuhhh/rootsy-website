@@ -1,33 +1,40 @@
 <template>
-  <section class="fit-height about">
-    <template v-if="aboutMe">
-      <div class="pad">
-        <div class="section-title">About Rootsy</div>
-        <div class="layout">
-          <ImageSet
-            classes="profile"
-            :sizes="aboutMe.acf.primary_image.sizes"
-            :alt="aboutMe.acf.primary_image.alt"
-          />
-          <div class="heading">
-            <SpanClipReveal>{{ aboutMe.acf.heading }}</SpanClipReveal>
+  <ScrolledIntoView :observer-options="{ threshold: 0.1 }">
+    <template v-slot:default="scroll">
+      <section class="fit-height about">
+        <template v-if="aboutMe">
+          <Siney v-if="scroll.inRange" />
+
+          <div class="pad">
+            <div class="section-title">About Rootsy</div>
+            <div class="layout">
+              <ImageSet
+                classes="profile"
+                :sizes="aboutMe.acf.primary_image.sizes"
+                :alt="aboutMe.acf.primary_image.alt"
+              />
+              <div class="heading">
+                <SpanClipReveal>{{ aboutMe.acf.heading }}</SpanClipReveal>
+              </div>
+              <div class="about--description">
+                <div v-html="aboutMe.content.rendered" />
+                <p class="availability">
+                  <SpanClipReveal v-if="aboutMe.acf.next_available">
+                    <span class="availability--avail">Next Availability:</span>
+                    {{ aboutMe.acf.next_available }}
+                  </SpanClipReveal>
+                </p>
+              </div>
+            </div>
           </div>
-          <div class="about--description">
-            <div v-html="aboutMe.content.rendered" />
-            <p class="availability">
-              <SpanClipReveal v-if="aboutMe.acf.next_available">
-                <span class="availability--avail">Next Availability:</span>
-                {{ aboutMe.acf.next_available }}
-              </SpanClipReveal>
-            </p>
-          </div>
-        </div>
-      </div>
+        </template>
+      </section>
     </template>
-  </section>
+  </ScrolledIntoView>
 </template>
 
 <script>
+import ScrolledIntoView from "@/components/ScrolledIntoView.vue";
 import SpanClipReveal from "@/components/SpanClipReveal.vue";
 import Siney from "@/components/Siney.vue";
 import ImageSet from "@/components/ImageSet.vue";
@@ -35,6 +42,7 @@ import { mapState } from "vuex";
 
 export default {
   components: {
+    ScrolledIntoView,
     SpanClipReveal,
     Siney,
     ImageSet
