@@ -29,21 +29,21 @@
 </template>
 
 <script>
-import SpanClipReveal from '@/components/SpanClipReveal.vue'
-import Siney from '@/components/Siney.vue'
-import ImageSet from '@/components/ImageSet.vue'
-import { mapState } from 'vuex'
+import SpanClipReveal from "@/components/SpanClipReveal.vue";
+import Siney from "@/components/Siney.vue";
+import ImageSet from "@/components/ImageSet.vue";
+import { mapState } from "vuex";
 
 export default {
-  computed: {
-    ...mapState(['aboutMe'])
-  },
   components: {
     SpanClipReveal,
     Siney,
     ImageSet
+  },
+  computed: {
+    ...mapState(["aboutMe"])
   }
-}
+};
 </script>
 
 <style lang="scss">

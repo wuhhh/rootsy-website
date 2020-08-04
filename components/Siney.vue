@@ -3,8 +3,6 @@
 </template>
 
 <script>
-//import { CanvasSpace, Color, Geom, Curve, Pt, Group, Line } from 'pts'
-
 export default {
   mounted() {
     const { CanvasSpace, Geom, Curve, Pt, Group, Line } = require("pts");
@@ -47,10 +45,7 @@ export default {
     });
 
     // start
-    space
-      .play()
-      .bindMouse()
-      .bindTouch();
+    space.play();
   }
 };
 </script>
