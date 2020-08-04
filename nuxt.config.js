@@ -17,7 +17,31 @@ export default {
       {
         hid: "description",
         name: "description",
-        content: process.env.npm_package_description || ""
+        content:
+          "Rootsy is the web design studio of Huw Roberts. 10+ years producing design and code for the web."
+      }
+    ],
+    link: [
+      {
+        rel: "apple-touch-icon",
+        sizes: "180x180",
+        href: "/apple-touch-icon.png"
+      },
+      {
+        rel: "icon",
+        sizes: "32x32",
+        type: "image/png",
+        href: "/favicon-32x32.png"
+      },
+      {
+        rel: "apple-touch-icon",
+        sizes: "16x16",
+        type: "image/png",
+        href: "/favicon-16x16.png"
+      },
+      {
+        rel: "manifest",
+        href: "/site.webmanifest"
       }
     ]
   },
@@ -45,9 +69,16 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     "@nuxtjs/axios",
-    "@nuxtjs/style-resources",
+    "@nuxtjs/style-resources"
     //"@nuxtjs/sitemap",
-    ["@nuxtjs/google-tag-manager", { id: "" }]
+  ],
+  buildModules: [
+    [
+      "@nuxtjs/google-analytics",
+      {
+        id: "UA-1957166-12"
+      }
+    ]
   ],
   /*
    ** Axios module configuration

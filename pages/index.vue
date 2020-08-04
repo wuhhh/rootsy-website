@@ -26,6 +26,10 @@ export default {
     Clients,
     Footer
   },
+  head: {
+    title:
+      "Rootsy | Freelance Web Designer & Developer | Cardiff, Bristol & Remote"
+  },
   computed: {
     ...mapState({
       list: state => state.caseStudies.list
@@ -37,17 +41,6 @@ export default {
       store.dispatch("fetchAboutMe"),
       store.dispatch("fetchClients")
     ]);
-  },
-  mounted() {
-    this.addMetaData();
-  },
-  methods: {
-    addMetaData() {
-      if (document) {
-        document.title =
-          "Rootsy | Freelance Web Designer & Developer | Cardiff, Bristol & Remote";
-      }
-    }
   }
 };
 </script>
