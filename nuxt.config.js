@@ -119,7 +119,8 @@ export default {
       "/case-study/flip",
       "/case-study/serein",
       "/case-study/serein-audiovisual",
-      "/case-study/drum-networking"
+      "/case-study/drum-networking",
+      "/case-study/dream-quickly"
     ]
     /*
     routes: 
