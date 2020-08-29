@@ -49,11 +49,6 @@ export default {
    */
   loading: { color: "#000" },
 
-  pageTransition: {
-    name: "page",
-    duration: 500
-  },
-
   /*
    ** Global CSS
    */
