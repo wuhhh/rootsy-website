@@ -99,14 +99,13 @@ export default {
       return result;
     }
   },
-  async fetch({ store, params, payload }) {
-    if (payload) {
-      //console.log("doing project route with payload", payload.slug);
-      await store.dispatch("caseStudies/get", payload.post);
-    } else {
-      //console.log("doing project route without payload", params.slug);
-      await store.dispatch("caseStudies/get", params.slug);
+  async fetch({ store, params }) {
+    if (!process.dev && process.client && process.static) {
+      return;
     }
+
+    //console.log("doing project route without payload", params.slug);
+    await store.dispatch("caseStudies/get", params.slug);
   }
 };
 </script>

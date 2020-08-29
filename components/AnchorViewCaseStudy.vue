@@ -1,20 +1,17 @@
 <template>
   <div class="view-case-study">
-     <nuxt-link :to="{ path: `case-study/${slug}`, params: { slug } }"
-      @mouseover.native="mouseOver()"
+    <nuxt-link
+      :to="{ path: `case-study/${slug}`, params: { slug } }"
       :class="[{ 'play-transition': playTransition }, 'icon-eye-' + color]"
-      class="icon icon-before">View case study</nuxt-link>
+      class="icon icon-before"
+      @mouseover.native="mouseOver()"
+      >View case study</nuxt-link
+    >
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      playTransition: false,
-      transitionDuration: 1000
-    }
-  },
   props: {
     isDark: {
       type: Boolean,
@@ -22,27 +19,33 @@ export default {
     },
     slug: {
       type: String,
-      default: '',
+      default: "",
       required: false
     }
   },
+  data() {
+    return {
+      playTransition: false,
+      transitionDuration: 1000
+    };
+  },
   computed: {
     color() {
-      return this.isDark ? 'pink' : 'blue'
+      return this.isDark ? "pink" : "blue";
     }
   },
   methods: {
     mouseOver() {
       if (!this.playTransition) {
-        this.playTransition = true
+        this.playTransition = true;
 
         setTimeout(() => {
-          this.playTransition = false
-        }, this.transitionDuration)
+          this.playTransition = false;
+        }, this.transitionDuration);
       }
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -56,7 +59,7 @@ div.view-case-study {
     vertical-align: middle;
 
     &:after {
-      content: '';
+      content: "";
       transition: right 300ms ease, left 700ms ease-in-out, opacity 250ms ease;
       position: absolute;
       top: 0;

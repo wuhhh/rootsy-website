@@ -1,19 +1,19 @@
 <template>
   <footer>
     <div class="pad">
-      <EmailLink/>
+      <EmailLink />
     </div>
   </footer>
 </template>
 
 <script>
-import EmailLink from '@/components/EmailLink.vue'
+import EmailLink from "@/components/EmailLink.vue";
 
 export default {
   components: {
     EmailLink
   }
-}
+};
 </script>
 
 <style lang="scss">
@@ -25,7 +25,7 @@ footer {
     padding: 16vmin 8vmin;
   }
 
-  font-family: 'CanelaDeck';
+  font-family: "CanelaDeck";
   font-size: 2.3em;
 
   a {

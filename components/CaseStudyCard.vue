@@ -51,7 +51,10 @@ export default {
     ScrolledIntoView
   },
   props: {
-    caseStudy: Object
+    caseStudy: {
+      type: Object,
+      default: () => {}
+    }
   }
 };
 </script>

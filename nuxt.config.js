@@ -1,7 +1,6 @@
-import axios from "axios";
-
 export default {
   mode: "universal",
+  target: "static",
   env: {
     API_URL:
       process.env.npm_package_name || "https://wp.rootsy.co.uk/wp-json/wp/v2"
@@ -62,7 +61,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: "~/plugins/widows.client.js" }],
+  //plugins: [{ src: "~/plugins/widows.client.js" }],
   /*
    ** Nuxt.js modules
    */
@@ -110,7 +109,8 @@ export default {
    */
   generate: {
     dir: "dist",
-    fallback: "404.html",
+    fallback: "404.html"
+    /*
     interval: 200, // interval in ms; server WILL bail if this is too small!
     routes: [
       "/",

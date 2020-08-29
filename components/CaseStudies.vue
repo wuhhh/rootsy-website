@@ -3,29 +3,27 @@
     <CaseStudyCard
       v-for="caseStudy in list"
       :key="caseStudy.id"
-      :caseStudy="caseStudy"
+      :case-study="caseStudy"
     />
   </section>
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import AnchorViewCaseStudy from '@/components/AnchorViewCaseStudy.vue'
-import CaseStudyCard from '@/components/CaseStudyCard.vue'
+import { mapState } from "vuex";
+import CaseStudyCard from "@/components/CaseStudyCard.vue";
 
 export default {
   components: {
-    AnchorViewCaseStudy,
     CaseStudyCard
   },
   computed: {
     ...mapState({
       list: state => {
-        return state.caseStudies.list
+        return state.caseStudies.list;
       }
     })
   }
-}
+};
 </script>
 
 <style lang="scss">

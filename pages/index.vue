@@ -36,6 +36,10 @@ export default {
     })
   },
   async fetch({ store }) {
+    if (!process.dev && process.client && process.static) {
+      return;
+    }
+
     await Promise.all([
       store.dispatch("caseStudies/getAll"),
       store.dispatch("fetchAboutMe"),
