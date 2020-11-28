@@ -1,16 +1,18 @@
 <template>
   <div class="menu--drawer" :class="{ open: menuState }">
-    <a @click.prevent="handleNav($event)" href="#">Index</a>
+    <a data-to-element="#top" href="#" @click.prevent="handleNav($event)"
+      >Home</a
+    >
     <a
-      @click.prevent="handleNav($event)"
       data-to-element="section.featured-work"
       href="#"
+      @click.prevent="handleNav($event)"
       >Case Studies</a
     >
     <a
-      @click.prevent="handleNav($event)"
       data-to-element="section.about"
       href="#"
+      @click.prevent="handleNav($event)"
       >About</a
     >
     <a href="mailto:hello@rootsy.co.uk">hello@rootsy.co.uk</a>
@@ -18,11 +20,11 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-var VueScrollTo = require('vue-scrollto')
+import { mapState } from "vuex";
+var VueScrollTo = require("vue-scrollto");
 
 export default {
-  name: 'MenuDrawer',
+  name: "MenuDrawer",
   props: {
     open: {
       type: Boolean,
@@ -32,24 +34,24 @@ export default {
   },
   methods: {
     handleNav(event) {
-      if (window.location.pathname != '/') {
+      if (window.location.pathname != "/") {
         // Route change
-        this.$router.push({ path: '/' }, () => {
+        this.$router.push({ path: "/" }, () => {
           // Completed
           setTimeout(() => {
-            VueScrollTo.scrollTo(event.target.getAttribute('data-to-element'))
-          }, 750)
-        })
+            VueScrollTo.scrollTo(event.target.getAttribute("data-to-element"));
+          }, 750);
+        });
       } else {
         // Scroll
-        VueScrollTo.scrollTo(event.target.getAttribute('data-to-element'))
+        VueScrollTo.scrollTo(event.target.getAttribute("data-to-element"));
       }
     }
   },
   computed: {
-    ...mapState(['menuState'])
+    ...mapState(["menuState"])
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

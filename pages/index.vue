@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div id="top"></div>
     <Header />
     <CaseStudies v-if="list" />
     <About />
